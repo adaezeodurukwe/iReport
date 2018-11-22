@@ -131,6 +131,9 @@ footer{
 	text-align: center;
 	color: white;
 	padding: 2% 0;
+	bottom: 0px;
+    width: 100%;
+    position: fixed;
 }
 
 /*signup page*/
