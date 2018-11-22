@@ -12,12 +12,12 @@ nav{
 	padding: 2%;
 	border-bottom: solid 1px #ccc;
 }
-/*.inner{
-	width: 80%;
-	margin: auto;
-}*/
+.inner{
+	padding-bottom: 1%;
+}
 
 nav h2{
+	color: #02309B;
 	width: 20%;
 	float: left;
 }
@@ -131,4 +131,64 @@ footer{
 	text-align: center;
 	color: white;
 	padding: 2% 0;
+}
+
+/*signup page*/
+.form-container{
+	width: 40%;
+	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%; 
+	padding: 2%;
+	background: #ffffff;
+	border: solid 1px #999;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+.form-heading{
+	text-align: center;
+}
+
+.form-heading ul{
+	padding-bottom: 2%;
+}
+
+.form-heading ul li{
+	list-style: none;
+	display: inline;
+	padding: 10% 2%;
+}
+
+.form-heading ul li a{
+	text-decoration: none;
+	color: black;
+	padding-bottom: 1%;
+	font-size: 1.5em;
+}
+
+.form-heading ul li a.active{
+	border-bottom: solid 3px #DC143C;
+}
+
+.form-container label{
+	display: block;
+	margin-top: 5%;
+}
+
+.form-container input{
+	display: block;
+	margin-top: 1%;
+	padding: 2%;
+	width: 96%;
+}
+
+.form-container button{
+	display: block;
+	text-align: center;
+	background: #02B875;
+	color: #ffffff;
+    width: 50%;
+    font-size: 15px;
+    height: 40px;
+    margin: 5% auto;
 }
