@@ -307,6 +307,7 @@ main{
 	min-height: 300px;
 	width: 80%;
 	margin: 1% auto;
+	padding: 1%;
 	background: #ffffff;
 }
 
@@ -364,6 +365,48 @@ main{
 
 .cards-max{
 	margin: 2%;
+}
+
+/*Create record page*/
+main form{
+	display: block;
+	width: 70%;
+	margin: 2%;
+}
+
+main form input{
+	width: 50%;
+	display: block;
+	margin-bottom: 2%;
+	padding: 1%;
+}
+
+main form select{
+	width: 52%;
+	display: block;
+	margin-bottom: 2%;
+	padding: 1%;
+}
+
+main form label{
+	display: block;
+}
+
+main textarea{
+	width: 50%;
+	min-height: 100px;
+	padding: 1%;
+	margin-bottom: 2%;
+}
+
+main button{
+	display: block;
+	text-align: center;
+	background: #02B875;
+	color: #ffffff;
+    width: 10%;
+    font-size: 15px;
+    height: 40px;
 }
 
 /*
