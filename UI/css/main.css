@@ -84,6 +84,7 @@ img.menu{
 
 .bg-grey{
 	background: #f8f9fa;
+	padding-bottom: 3%;
 }
 
 .row{
@@ -108,7 +109,7 @@ img.menu{
 .item h2{
 	text-align: center;
 	padding: 2%;
-	color: #191970;
+	color: #333;
 }
 
 .item p{
@@ -364,6 +365,12 @@ main{
 	list-style: none;
 }
 
+.min-nav ul li a{
+	text-decoration: none;
+	color: #333;
+}
+
+
 /*Create record page*/
 main form{
 	display: block;
@@ -433,7 +440,7 @@ main button{
 
 .max-cards h4{
 	margin-bottom: 1%;
-	border-bottom: solid 1px #333;
+	border-bottom: solid 1px #999;
 	text-transform: capitalize;
 }
 /*
