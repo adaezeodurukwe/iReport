@@ -417,7 +417,25 @@ main button{
 	width: 100%;
 }
 
+/*FAQ page*/
+.faq{
+	width: 80%;
+	margin: auto;
+}
 
+.max-cards{
+	border: solid 1px #999;
+	background: #ffffff;
+	margin: 2%; 
+	padding: 2%;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+.max-cards h4{
+	margin-bottom: 1%;
+	border-bottom: solid 1px #333;
+	text-transform: capitalize;
+}
 /*
 *lightbox style
 *gallery modal style from https://www.w3schools.com/howto/howto_js_lightbox.asp
