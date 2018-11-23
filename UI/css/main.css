@@ -195,3 +195,82 @@ footer{
     height: 40px;
     margin: 5% auto;
 }
+
+/*records page*/
+.records{
+	margin-bottom: 10%;
+}
+
+.records h2{
+	width: 100%;
+	box-shadow: 2px 2px 2px #888888;
+	padding: 1% 0;
+	text-align: center;
+}
+
+.records-body{
+	width: 80%;
+	margin: 1% auto;
+}
+
+.filter{
+	display: block;
+	width: 100%; 
+}
+
+.filter form{
+	margin-left: 70%
+}
+
+
+.filter select{
+	width: 96%;
+	margin-right: 4%; 
+}
+
+.main{
+	margin: 2% 0;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.cards:first-child{
+	background: transparent;
+	border: none;
+}
+
+.cards{
+	border: solid 1px #999;
+	background: #ffffff;
+	margin: 5%; 
+	padding: 5%;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+.cards h4{
+	text-align: center;
+	padding-bottom: 2%;
+	border-bottom: solid 1px #333;
+	text-transform: capitalize;
+}
+
+.cards p{
+	padding: 5% 0;
+}
+
+.cards img{
+	display: block;
+	margin: auto;
+	width: 50%;
+	padding: 20px;
+}
+
+.cards button{
+	width: 30%;
+	float: right;
+	padding: 2%;
+	background: #02B875;
+	border-color: #02B875;
+	color: #ffffff;
+}
+
