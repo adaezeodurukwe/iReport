@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Create</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+<body>
+	<div class="container">			
+		<nav>
+			<div class="inner">
+				<h2>iReporter</h2>
+				<ul>
+					<li><a href="#">Records |</a></li>
+					<li><a href="#">Faq |</a></li>
+					<li><a href="#">Profile</a></li>
+				</ul>
+			</div>	
+		</nav>
+		
+		<div class="profile">
+			<h2>Profile</h2>
+			<main>
+				<div class="profile-header">
+					<b>Add Record</b>
+					<div class="min-nav">
+						<ul>
+							<li><img src="img/add1.png">Add Record</li>
+							<li><img src="img/logout.png">Logout</li>
+						</ul>
+					</div>
+				</div><br><br>
+
+	            <form method="POST">
+	                <label for="title"><b>Title</b></label>
+	                <input type="text" name="title">
+
+	                <label for="type"><b>Type</b></label>
+					<select name="type">
+						<option value="redflag">Red Flag</option>
+						<option value="intervention">Intervention</option>
+					</select> 
+	                
+	                <label for="comment"><b>Comment</b></label>
+	                <textarea name="comment"></textarea>
+
+					<label for="picture"><b>Add pictures</b></label>
+	                <input type="file" name="picture" accept="image/*">
+
+	                <div class="button">
+	                    <button>Submit</button>    
+	                </div>
+	            </form>
+			</main>
+
+		</div>
+		
+	</div>
+	<footer>
+		<p>&copy Adaeze Odurukwe</p>
+	</footer>
+</body>
+</html>
