@@ -13,7 +13,7 @@ nav{
 	border-bottom: solid 1px #ccc;
 }
 .inner{
-	padding-bottom: 1%;
+	padding-bottom: 0.5%;
 }
 
 nav h2{
@@ -198,7 +198,7 @@ footer{
 
 /*records page*/
 .records{
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 
 .records h2{
@@ -229,7 +229,7 @@ footer{
 	margin-right: 4%; 
 }
 
-.main{
+.main, .profile-body{
 	margin: 2% 0;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
@@ -297,9 +297,79 @@ footer{
 	text-align: center;
 }
 
+/*profile page*/
+.profile{
+	margin-bottom: 5%;
+}
 
+main{
 
-/*gallery modal style from https://www.w3schools.com/howto/howto_js_lightbox.asp*/
+	min-height: 300px;
+	width: 80%;
+	margin: 1% auto;
+	background: #ffffff;
+}
+
+.profile h2{
+	width: 100%;
+	box-shadow: 2px 2px 2px #888888;
+	padding: 1% 0;
+	text-align: center;
+	background: #d5edf3;
+}
+
+.status{
+	margin-top: 5%;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.status-cards{
+	text-align: center;
+	font-weight: bold;
+	background: #FFF5EE;
+	margin: 5%;
+	padding: 2%;
+	border: solid 1px #ccc;
+	box-shadow: 2px 2px 2px #888888;
+
+}
+
+.status-cards p{
+	padding: 2%;
+}
+
+.status-cards:nth-child(odd){
+	background: #F0F8FF;
+}
+
+.profile-header b{
+	width: 40%;
+	float: left;
+	padding: 1%;
+	font-size: 1.5em
+}
+
+.min-nav img{
+	height: 15px;
+	padding: 0 0;
+}
+
+.min-nav ul li{
+	float: right;
+	display: inline-block;
+	padding: 1%;
+	list-style: none;
+}
+
+.cards-max{
+	margin: 2%;
+}
+
+/*
+*lightbox style
+*gallery modal style from https://www.w3schools.com/howto/howto_js_lightbox.asp
+*/
 .images h3{
 	padding: 1%;
 }
