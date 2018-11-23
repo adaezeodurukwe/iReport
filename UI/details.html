@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Home</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+<body>
+	<div class="container">			
+		<nav>
+			<div class="inner">
+				<h2>iReporter</h2>
+				<ul>
+					<li><a href="#">Records |</a></li>
+					<li><a href="#">Faq |</a></li>
+					<li><a href="#">Profile</a></li>
+				</ul>
+			</div>	
+		</nav>
+		
+		<div class="records">
+			<h2>DETAILS</h2>
+			<div class="records-body">
+				<div class="detail-header">
+					<div class="section">
+						<div style="overflow:hidden;width: 100%;position: relative;"><iframe width="100%" height="400" src="https://maps.google.com/maps?hl=en&amp;q=Maryland%20mall%2C%20Lagos%2C%20Ikeja+(Mall)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 100%;bottom: 20px;left: 0;right: 0;margin-left: auto;margin-right: auto;margin-top:1%; color: #000;"><small style="line-height: 1.8;font-size: 8px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embedgooglemaps.com/</a> & <a href="https://buyinstagramfollowersreviews.net">Tons of Instagram Followers</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br /> 
+					</div>
+					<div class="section">
+						<p><h3>Red Flag</h3> </p> 
+						<p><h4>Created by:</h4> Pinocchio</p>
+						<p><h4>Status:</h4> Draft</p>
+						<p><h4>Comment:</h4>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.  </p>
+					</div>	
+				</div>
+				<div class="images">
+
+					<h3>Images</h2>
+
+					<div class="row">
+					  <div class="column">
+					    <img src="img/road.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+					  </div>
+
+					  <div class="column">
+					    <img src="img/road1.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+					  </div>
+					</div>
+
+					<div id="myModal" class="modal">
+					  <span class="close cursor" onclick="closeModal()">&times;</span>
+					  <div class="modal-content">
+
+					    <div class="mySlides">
+					      <div class="numbertext">1 / 2</div>
+					      <img src="img/road.jpg" style="width:100%">
+					    </div>
+
+					    <div class="mySlides">
+					      <div class="numbertext">2 / 4</div>
+					      <img src="img/road1.jpg" style="width:100%">
+					    </div>
+
+					    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+					    <div class="caption-container">
+					      <p id="caption"></p>
+					    </div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<footer>
+		<p>&copy Adaeze Odurukwe</p>
+	</footer>
+<script>
+	/**
+	* Modal gallery (lightbox) solution from https://www.w3schools.com/howto/howto_js_lightbox.asp
+	**/
+	function openModal() {
+	  document.getElementById('myModal').style.display = "block";
+	}
+
+	function closeModal() {
+	  document.getElementById('myModal').style.display = "none";
+	}
+
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("demo");
+	  var captionText = document.getElementById("caption");
+	  if (n > slides.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";
+	  dots[slideIndex-1].className += " active";
+	  captionText.innerHTML = dots[slideIndex-1].alt;
+	}
+</script>
+</body>
+</html>
