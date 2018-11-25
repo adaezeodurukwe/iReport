@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iReporter | Create</title>
+    <script type="text/javascript" src="js/utility.js"></script>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="img/favicon.png" />
 </head>
@@ -11,49 +12,63 @@
 	<div class="container">			
 		<nav>
 			<div class="inner">
+				<div class="mobile">
+					<a href="javascript:void(0);" onclick="mobileNav()"><img src="img/menu1.png"></a>
+				</div>
 				<a href="index.html"><h2>iReporter</h2></a>
-				<ul>
-					<li><a href="records.html">Records |</a></li>
-					<li><a href="faq.html">Faq |</a></li>
-					<li><a href="profile.html">Profile</a></li>
-				</ul>
-			</div>	
+				<div class="links">
+					<ul>	
+						<li><a href="records.html">Records |</a></li>
+						<li><a href="faq.html">Faq |</a></li>
+						<li><a href="profile.html">Profile</a></li>
+					</ul>
+				</div>					
+			</div>				
 		</nav>
+
+		<div class="mobile-nav">	
+			<p><a href="records.html">Records </a></p>
+			<p><a href="faq.html">Faq </a></p>
+			<p><a href="profile.html">Profile</a></p>
+			<p><a href="signin.html">Log in</a></p>
+			<p><a href="signup.html">Join</a></p>
+		</div>
 		
 		<div class="profile">
 			<h2>Profile</h2>
 			<main>
-				<div class="profile-header">
-					<b>Add Record</b>
-					<div class="min-nav">
-						<ul>
-							<li><a href=""><img src="img/logout.png">Logout</a></li>
-							<li><a href="create.html"><img src="img/add1.png">Add Record</a></li>
-							<li><a href="profile.html"><img src="img/full.png">My Records</a></li>
-						</ul>
-					</div>
-				</div><br><br>
+				<b>Add Record</b>
+				<div class="min-nav">
+					<ul>
+						<li><a href=""><img src="img/logout.png">Logout</a></li>
+						<li><a href="create.html"><img src="img/add1.png">Add</a></li>
+						<li><a href="profile.html"><img src="img/full.png">Records</a></li>
+					</ul>
+				</div>
+				<br>
+				<div class="create">
+					<form method="POST">
+		                <label for="title"><b>Title</b></label>
+		                <input type="text" name="title">
 
-	            <form method="POST">
-	                <label for="title"><b>Title</b></label>
-	                <input type="text" name="title">
+		                <label for="type"><b>Type</b></label>
+						<select name="type">
+							<option value="redflag">Red Flag</option>
+							<option value="intervention">Intervention</option>
+						</select> 
+		                
+		                <label for="comment"><b>Comment</b></label>
+		                <textarea name="comment"></textarea>
 
-	                <label for="type"><b>Type</b></label>
-					<select name="type">
-						<option value="redflag">Red Flag</option>
-						<option value="intervention">Intervention</option>
-					</select> 
-	                
-	                <label for="comment"><b>Comment</b></label>
-	                <textarea name="comment"></textarea>
+						<label for="media"><b>Add pictures</b></label>
+		                <input type="file" name="media">
 
-					<label for="picture"><b>Add pictures</b></label>
-	                <input type="file" name="picture" accept="image/*">
-
-	                <div class="button">
-	                    <button onclick="location.href='profile.html';">Submit</button>    
-	                </div>
-	            </form>
+		                <div class="button">
+		                    <button onclick="location.href='profile.html';">Submit</button>    
+		                </div>
+		            </form>
+				</div>
+	            
 			</main>
 
 		</div>
