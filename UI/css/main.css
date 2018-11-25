@@ -9,17 +9,38 @@ body{
 }
 
 nav{
-	padding: 2%;
+	padding: 1%;
+	min-height: 30px;
 	border-bottom: solid 1px #ccc;
 }
-.inner{
-	padding-bottom: 0.5%;
+
+.mobile{
+	display: none;
+}
+
+.mobile-nav{
+	display: none;
+	width: 100%;
+	background: #d5edf3;
+	z-index: 1;
+}
+
+.mobile-nav p{
+	padding: 0.5%;	
+}
+
+.mobile-nav a{
+	text-decoration: none;
+	color: #02309B;
+	padding: 1%;
+
 }
 
 nav h2{
 	color: #02309B;
 	width: 20%;
 	float: left;
+	/*grid-area: heading;*/
 }
 
 nav ul{
@@ -56,12 +77,12 @@ img.menu{
 }
 
 .header-txt{
-	padding-top: 20%;
+	padding-top: 10%;
 }
 
 .header-txt h1{
 	color: #02309B;
-	font-size: 4em;
+	font-size: 2em;
 }
 
 .header-txt p{
@@ -70,9 +91,13 @@ img.menu{
 	color: #333;
 }
 
-.header-txt button{
+.header-button{
+	width: 50%;
+}
+
+.header-button button{
 	background: #02B875;
-	width: 15%;
+	width: 30%;
 	padding: 1%;
 	font-size: 1.2em;
 	color: #ffffff;
@@ -108,12 +133,12 @@ img.menu{
 
 .item h2{
 	text-align: center;
-	padding: 2%;
+	padding: 1%;
 	color: #333;
 }
 
 .item p{
-	padding-top: 4%;
+	padding-top: 2%;
 	font-size: 1em;
 }
 
@@ -121,7 +146,7 @@ img.menu{
 	width: 80%;
 	margin: auto;
 	text-align: center;
-	padding-top: 2%;
+	padding: 4% 0;
 	font-size: 1.5em;
 	color: #333;
 }
@@ -171,7 +196,7 @@ footer{
 }
 
 .form-heading ul li a.active{
-	border-bottom: solid 3px #DC143C;
+	border-bottom: solid 2px #F08080;
 }
 
 .form-container label{
@@ -198,10 +223,6 @@ footer{
 }
 
 /*records page*/
-.records{
-	margin-bottom: 5%;
-}
-
 .records h2{
 	width: 100%;
 	box-shadow: 2px 2px 2px #888888;
@@ -268,7 +289,7 @@ footer{
 }
 
 .cards button{
-	width: 30%;
+	width: 40%;
 	height: 30px;
 	padding: 1%;
 	margin-top: 2%;
@@ -278,17 +299,19 @@ footer{
 }
 
 /*Details page*/
-.detail-header{
-	margin-top: 5%;
+.detail{
+	width: 80%;
+	margin: 5% auto;
 	display: grid;
 	grid-template-columns: 60% 40%;
 }
 
 .section:nth-child(2){
-	height: 384px;
+	height: 400px;
 	background: #ffffff;
-	padding: 2%;
+	padding: 0 2%;
 	box-shadow: 1px 1px #888888;
+	margin-bottom: 10%
 }
 
 .section p{
@@ -353,6 +376,10 @@ main{
 	font-size: 1.5em
 }
 
+.min-nav{
+	margin-bottom: 10%;
+}
+
 .min-nav img{
 	height: 15px;
 	padding: 0 0;
@@ -370,23 +397,32 @@ main{
 	color: #333;
 }
 
+.cards a{
+	text-decoration: none;
+	bottom: 0;	
+}
 
 /*Create record page*/
+.create{
+	width: 80%;
+	margin: auto
+}
+
 main form{
 	display: block;
-	width: 70%;
+	width: 100%;
 	margin: 2%;
 }
 
 main form input{
-	width: 50%;
+	width: 90%;
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
 }
 
 main form select{
-	width: 52%;
+	width: 92%;
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
@@ -397,7 +433,7 @@ main form label{
 }
 
 main textarea{
-	width: 50%;
+	width: 90%;
 	min-height: 100px;
 	padding: 1%;
 	margin-bottom: 2%;
@@ -408,9 +444,10 @@ main button{
 	text-align: center;
 	background: #02B875;
 	color: #ffffff;
-    width: 10%;
+    width: 40%;
     font-size: 15px;
     height: 40px;
+    margin: auto;
 }
 
 
@@ -428,6 +465,7 @@ main button{
 .faq{
 	width: 80%;
 	margin: auto;
+	margin-top: 5%;
 }
 
 .max-cards{
@@ -443,6 +481,82 @@ main button{
 	border-bottom: solid 1px #999;
 	text-transform: capitalize;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="inner"]{
+    	padding-bottom: 4%;
+    }
+
+    [class*="mobile"] {
+        display: block;
+        float: right;
+    }
+
+    [class*="links"]{
+	   	display: none;
+    }
+
+    [class*="header"]{
+    	display: grid;
+    	height: 350px;
+    }
+
+    [class*="header-button"]{
+    	display: none;
+    }
+
+    [class*="header-img"]{
+    	display: none;
+    }
+
+	[class*="header-txt"]{
+	padding: 2%;
+	width: 80%;
+   	margin: auto;
+	}
+
+	[class*="content"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="item"]{
+		border-bottom: solid 1px #ccc;
+		margin: 1%;
+		padding-bottom: 1%;
+	}
+
+	[class*="mobile-nav"]{
+		display: none;
+		position: absolute;
+	}
+
+	[class*="form-container"]{
+		margin-top: 10%;
+		width: 80%;
+	}
+
+	[class*="main"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="detail"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="profile-body"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="status"]{
+		margin-top: 10%;
+		grid-template-columns: 50% 50%;
+	}
+}
+
+
+
+
 /*
 *lightbox style
 *gallery modal style from https://www.w3schools.com/howto/howto_js_lightbox.asp
@@ -463,7 +577,7 @@ main button{
 
 .column {
   float: left;
-  width: 25%;
+  width: 40%;
   height: 80%;
 }
 
