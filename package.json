@@ -1,0 +1,36 @@
+{
+  "name": "ireport",
+  "version": "1.0.0",
+  "description": "iReporter is an app that enables citizens to bring corruption/corrupt practices to the notice of appropriate authorities and the public",
+  "main": "app.js",
+  "scripts": {
+    "build": "babel app.js -d dist",
+    "start": "npm run build && node dist/app.js",
+    "devstart": "npm run build && nodemon dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaezeodurukwe/iReport.git"
+  },
+  "author": "Adaeze Odurukwe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adaezeodurukwe/iReport/issues"
+  },
+  "homepage": "https://github.com/adaezeodurukwe/iReport#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.6"
+  }
+}
