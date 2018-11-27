@@ -101,18 +101,17 @@ describe('PATCH API endpoint /red-flags/<red-flag-id>/comment', () => {
 });
 
 // Delete incident endpoint
-describe('GET API endpoint /api/v1/red-flags/<red-flag-id>', () => {
+describe('DELETE API endpoint /api/v1/red-flags/<red-flag-id>', () => {
     it('should return all incidents', (done) => {
         chai.request(app)
-            .delete('/api/v1/red-flags')
+            .delete('/api/v1/red-flags/1')
             .then((res) => {
                 expect(res).to.have.status(200);
-                expect(res).to.be.a.json();
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status').to.be.an('int');
+                expect(res.body).to.have.property('status').to.be.an('number');
                 expect(res.body).to.have.property('data').to.be.an('array');
-                expect(res.body.data).to.have.property('id');
-                expect(res.body.data).to.have.property('message').to.be.equal.to('red-flag record has been deleted');
+                expect(res.body.data[0]).to.have.property('id');
+                expect(res.body.data[0]).to.have.property('message').to.be.equal('red-flag record has been deleted');
                 done();
             });
     });
