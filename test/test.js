@@ -14,7 +14,7 @@ describe('GET API endpoint /api/v1/red-flags', () => {
             .then((res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('status').to.be.a('number');
                 expect(res.body).to.have.property('data').to.be.an('array');
                 done();
             });
@@ -28,10 +28,9 @@ describe('GET API endpoint /api/v1/red-flags/<red-flag-id>', () => {
             .get('/api/v1/red-flags/1')
             .then((res) => {
                 expect(res).to.have.status(200);
-                expect(res).to.be.a.json();
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status').to.be.an('int');
-                expect(res.body).to.have.property('data').to.be.an('array');
+                expect(res.body).to.have.property('status').to.be.a('number');
+                expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             });
     });
