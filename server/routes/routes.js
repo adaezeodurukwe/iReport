@@ -9,5 +9,6 @@ router.get('/', Incidents.allIncidents);
 router.get('/:id', Incidents.oneIncident);
 router.post('/', Incidents.createIncident);
 router.patch('/:id/location', Incidents.modifyIncidentLocation);
+router.patch('/:id/comment', Incidents.modifyIncidentComment);
 
 export default router;
