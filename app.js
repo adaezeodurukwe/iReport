@@ -5,6 +5,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import router from './server/routes/routes';
 
 // Create instance of express
 const app = express();
@@ -19,6 +20,8 @@ const port = parseInt(process.env.port, 10) || 3000;
 app.listen(port);
 
 // Set route
+app.use('/api/v1/red-flags', router);
+
 app.use('/', (req, res) => {
     res.send('lets go');
 });
