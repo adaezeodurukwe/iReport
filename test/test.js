@@ -51,7 +51,7 @@ describe('POST API endpoint', () => {
             .end((err, res) => {
                 expect(res).to.have.status(201);
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status').to.be.an('number');
+                expect(res.body).to.have.property('status').to.be.a('number');
                 expect(res.body).to.have.property('data').to.be.an('array');
                 expect(res.body.data[0]).to.have.property('id');
                 expect(res.body.data[0]).to.have.property('message').to.be.equal('Created red-flag record');
@@ -70,12 +70,11 @@ describe('PATCH API endpoint /red-flags/<red-flag-id>/location', () => {
             })
             .end((err, res) => {
                 expect(res).to.have.status(200);
-                expect(res).to.be.a.json();
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status').to.be.an('int');
+                expect(res.body).to.have.property('status').to.be.a('number');
                 expect(res.body).to.have.property('data').to.be.an('array');
-                expect(res.body.data).to.have.property('id');
-                expect(res.body.data).to.have.property('message').to.be.equal.to('Updated red-flag record’s location');
+                expect(res.body.data[0]).to.have.property('id');
+                expect(res.body.data[0]).to.have.property('message').to.be.equal('updated red-flag record\'s location');
                 done();
             });
     });

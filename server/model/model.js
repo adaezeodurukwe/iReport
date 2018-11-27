@@ -55,6 +55,21 @@ class Model {
         };
         return incidents.push(newIncident);
     }
+
+    /**
+     * @static modifyLocation
+     * @param {*} record
+     * @param {*} newLocation
+     * @returns {object} incident
+     */
+    static modifyLocation(record, newLocation) {
+        const incident = record;
+        const location = newLocation;
+
+        incident.location = location;
+
+        return incident;
+    }
 }
 
 export default Model;
