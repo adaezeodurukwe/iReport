@@ -1,10 +1,10 @@
 // Tests for routes
 
-import { chai, expect } from 'chai';
-import chaiHTTP from 'chai-http';
+import chai, { expect } from 'chai';
+import chaiHttp from 'chai-http';
 import app from '../app';
 
-chai.use(chaiHTTP);
+chai.use(chaiHttp);
 
 // Get all endpoint
 describe('GET API endpoint /api/v1/red-flags', () => {
@@ -13,9 +13,8 @@ describe('GET API endpoint /api/v1/red-flags', () => {
             .get('/api/v1/red-flags')
             .then((res) => {
                 expect(res).to.have.status(200);
-                expect(res).to.be.a.json();
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.property('status').to.be.an('int');
+                expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('data').to.be.an('array');
                 done();
             });
