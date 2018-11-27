@@ -70,6 +70,21 @@ class Model {
 
         return incident;
     }
+
+    /**
+     * @static modifyComment
+     * @param {*} record
+     * @param {*} newComment
+     * @returns {object} incident
+     */
+    static modifyComment(record, newComment) {
+        const incident = record;
+        const comment = newComment;
+
+        incident.comment = comment;
+
+        return incident;
+    }
 }
 
 export default Model;

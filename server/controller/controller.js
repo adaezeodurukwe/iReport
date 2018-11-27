@@ -112,6 +112,37 @@ class Incidents {
             });
         }
     }
+
+    /**
+     * @async modifyIncidentComment
+     * @param {*} req
+     * @param {*} res
+     * @returns {object} modifiedRecord
+     */
+    static async modifyIncidentComment(req, res) {
+        const id = parseInt(req.params.id, 10);
+        try {
+            const record = await Model.getOne(id);
+            if (record === false) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+            const modifiedRecord = await Model.modifyComment(record, req.body.comment);
+            return res.status(200).send({
+                status: 200,
+                data: [{
+                    id: modifiedRecord.id,
+                    message: 'updated red-flag record\'s comment',
+                }],
+            });
+        } catch (error) {
+            return res.status(404).send({
+                message: error,
+            });
+        }
+    }
 }
 
 export default Incidents;
