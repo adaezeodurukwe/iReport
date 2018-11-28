@@ -15,6 +15,12 @@ class Incidents {
     static async allIncidents(req, res) {
         try {
             const records = await Model.getAll();
+            if (!records[0]) {
+                return res.status(200).send({
+                    status: 200,
+                    data: 'No record',
+                });
+            }
             return res.status(200).send({
                 status: 200,
                 data: records,
@@ -40,7 +46,7 @@ class Incidents {
             if (record === false) {
                 return res.status(404).send({
                     status: 404,
-                    data: 'Not found',
+                    data: 'Red-flag not found',
                 });
             }
             return res.status(200).send({
@@ -62,6 +68,12 @@ class Incidents {
      * @returns {object} newRecord
      */
     static async createIncident(req, res) {
+        if (!req.body.author || !req.body.type || !req.body.location || !req.body.comment) {
+            return res.status(400).send({
+                status: 400,
+                message: 'Missing field',
+            });
+        }
         try {
             const newRecord = await Model.create(
                 req.body.author,
@@ -77,7 +89,7 @@ class Incidents {
                 }],
             });
         } catch (error) {
-            return res.status(400).send({
+            return res.status(404).send({
                 status: 404,
                 message: error,
             });
