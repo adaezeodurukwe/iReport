@@ -85,6 +85,15 @@ class Model {
 
         return incident;
     }
+
+    static delete(record) {
+        const incident = record;
+        const recordIndex = incidents.indexOf(incident);
+
+        incidents.splice(recordIndex, 1);
+
+        return incident;
+    }
 }
 
 export default Model;

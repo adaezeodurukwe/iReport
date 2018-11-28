@@ -49,6 +49,7 @@ class Incidents {
             });
         } catch (error) {
             return res.status(404).send({
+                status: 404,
                 message: error,
             });
         }
@@ -77,6 +78,7 @@ class Incidents {
             });
         } catch (error) {
             return res.status(400).send({
+                status: 404,
                 message: error,
             });
         }
@@ -108,6 +110,7 @@ class Incidents {
             });
         } catch (error) {
             return res.status(404).send({
+                status: 404,
                 message: error,
             });
         }
@@ -139,6 +142,33 @@ class Incidents {
             });
         } catch (error) {
             return res.status(404).send({
+                status: 404,
+                message: error,
+            });
+        }
+    }
+
+    static async deleteIncident(req, res) {
+        const id = parseInt(req.params.id, 10);
+        try {
+            const record = await Model.getOne(id);
+            if (record === false) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+            const deletedRecord = await Model.delete(record);
+            return res.status(200).send({
+                status: 200,
+                data: [{
+                    id: deletedRecord.id,
+                    message: 'red-flag record has been deleted',
+                }],
+            });
+        } catch (error) {
+            return res.status(404).send({
+                status: 404,
                 message: error,
             });
         }
