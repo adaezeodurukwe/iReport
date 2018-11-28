@@ -1,3 +1,10 @@
+
+https://travis-ci.org/adaezeodurukwe/iReport.svg?branch=develop
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+
+[![Coverage Status](https://coveralls.io/repos/github/adaezeodurukwe/iReport/badge.svg?branch=develop)](https://coveralls.io/github/adaezeodurukwe/iReport?branch=develop)
+
 # iReport
 
 **Introduction**
