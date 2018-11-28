@@ -34,6 +34,17 @@ describe('GET API endpoint /api/v1/red-flags/<red-flag-id>', () => {
                 done();
             });
     });
+    it('should return false for invalid id', (done) => {
+        chai.request(app)
+            .get('/api/v1/red-flags/5')
+            .then((res) => {
+                expect(res).to.have.status(404);
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status').to.be.a('number');
+                expect(res.body).to.have.property('data').to.be.equal('Red-flag not found');
+                done();
+            });
+    });
 });
 
 // Create incident endpoint
@@ -42,10 +53,9 @@ describe('POST API endpoint', () => {
         chai.request(app)
             .post('/api/v1/red-flags')
             .send({
-                createdBy: 'Adaeze',
+                author: 'Adaeze',
                 type: 'intervention',
                 location: 'Lat: 700, Long: 450',
-                images: ['img1.jpg'],
                 comment: 'description of incident',
             })
             .end((err, res) => {
@@ -55,6 +65,21 @@ describe('POST API endpoint', () => {
                 expect(res.body).to.have.property('data').to.be.an('array');
                 expect(res.body.data[0]).to.have.property('id');
                 expect(res.body.data[0]).to.have.property('message').to.be.equal('Created red-flag record');
+                done();
+            });
+    });
+    it('should not create an incident when field is missing', (done) => {
+        chai.request(app)
+            .post('/api/v1/red-flags')
+            .send({
+                createdBy: 'Adaeze',
+                type: 'intervention',
+                comment: 'description of incident',
+            })
+            .end((err, res) => {
+                expect(res).to.have.status(400);
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('message').to.be.equal('Missing field');
                 done();
             });
     });
@@ -78,6 +103,20 @@ describe('PATCH API endpoint /red-flags/<red-flag-id>/location', () => {
                 done();
             });
     });
+    it('should return error for invalid record id', (done) => {
+        chai.request(app)
+            .patch('/api/v1/red-flags/5/location')
+            .send({
+                location: 'Lat: 500, Long: 70',
+            })
+            .end((err, res) => {
+                expect(res).to.have.status(404);
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status').to.be.a('number');
+                expect(res.body).to.have.property('message').to.be.equal('Red-flag not found');
+                done();
+            });
+    });
 });
 
 // Update comment of red flag endpoint
@@ -98,6 +137,20 @@ describe('PATCH API endpoint /red-flags/<red-flag-id>/comment', () => {
                 done();
             });
     });
+    it('should return error when record is not found', (done) => {
+        chai.request(app)
+            .patch('/api/v1/red-flags/5/comment')
+            .send({
+                comment: 'new comment',
+            })
+            .end((err, res) => {
+                expect(res).to.have.status(404);
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status').to.be.a('number');
+                expect(res.body).to.have.property('message').to.be.equal('Red-flag not found');
+                done();
+            });
+    });
 });
 
 // Delete incident endpoint
@@ -112,6 +165,17 @@ describe('DELETE API endpoint /api/v1/red-flags/<red-flag-id>', () => {
                 expect(res.body).to.have.property('data').to.be.an('array');
                 expect(res.body.data[0]).to.have.property('id');
                 expect(res.body.data[0]).to.have.property('message').to.be.equal('red-flag record has been deleted');
+                done();
+            });
+    });
+    it('should return error when record is not found', (done) => {
+        chai.request(app)
+            .delete('/api/v1/red-flags/5')
+            .then((res) => {
+                expect(res).to.have.status(404);
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status').to.be.an('number');
+                expect(res.body).to.have.property('message').to.be.equal('Red-flag not found');
                 done();
             });
     });
