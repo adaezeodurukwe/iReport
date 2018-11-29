@@ -26,7 +26,8 @@ nav{
 }
 
 .mobile-nav p{
-	padding: 0.5%;	
+	padding: 1%;	
+	text-align: center;
 }
 
 .mobile-nav a{
@@ -65,6 +66,10 @@ nav ul li a{
 
 img.menu{
 	visibility: hidden;
+}
+
+.container{
+	padding-bottom: 5%;
 }
 
 .header-img{
@@ -107,9 +112,9 @@ img.menu{
 	background: white;
 }
 
-.bg-grey{
-	background: #f8f9fa;
-	padding-bottom: 3%;
+.row1{
+	min-height: 100px;
+	padding-bottom: 5%;
 }
 
 .row{
@@ -131,7 +136,12 @@ img.menu{
 	padding: 0 3%;
 }
 
-.item h2{
+.item img{
+	display: block;
+	margin: 5% auto;
+}
+
+.item h3{
 	text-align: center;
 	padding: 1%;
 	color: #333;
@@ -156,7 +166,7 @@ footer{
 	height: 10px;
 	text-align: center;
 	color: white;
-	padding: 2% 0;
+	padding: 2%;
 	bottom: 0px;
     width: 100%;
     position: fixed;
@@ -259,7 +269,6 @@ footer{
 
 .cards:first-child{
 	background: transparent;
-	border: none;
 }
 
 .cards{
@@ -345,7 +354,6 @@ main{
 }
 
 .status{
-	margin-top: 5%;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
 }
@@ -387,7 +395,6 @@ main{
 
 .min-nav ul li{
 	float: right;
-	display: inline-block;
 	padding: 1%;
 	list-style: none;
 }
@@ -553,7 +560,12 @@ main button{
 		grid-template-columns: 50% 50%;
 	}
 }
-
+@media only screen and (max-width: 300px) {
+	[class*="status"]{
+		margin-top: 20%;
+		grid-template-columns: 100%;
+	}
+}
 
 
 
