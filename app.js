@@ -5,6 +5,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
 import router from './server/routes/routes';
 
 // Create instance of express
@@ -23,7 +24,7 @@ app.listen(port);
 app.use('/api/v1/red-flags', router);
 
 app.use('/', (req, res) => {
-    res.send('lets go');
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 export default app;
