@@ -255,7 +255,7 @@ footer h4{
 }
 
 /*records page*/
-.records h2{
+.records h2, .profile h2{
 	width: 100%;
 	box-shadow: 2px 2px 2px #888888;
 	padding: 1% 0;
@@ -366,13 +366,6 @@ main{
 	background: #ffffff;
 }
 
-.profile h2{
-	width: 100%;
-	box-shadow: 2px 2px 2px #888888;
-	padding: 1% 0;
-	text-align: center;
-	background: #d5edf3;
-}
 
 .status{
 	padding-top: 5%;
@@ -408,6 +401,7 @@ main{
 
 .profile h3{
 	text-align: center;
+	color: #02309B;
 }
 
 .min-nav{
@@ -497,6 +491,7 @@ main{
 	width: 90%;
 	display: block;
 	margin-bottom: 2%;
+	border-radius: 3%;
 	padding: 1%;
 }
 
@@ -511,7 +506,7 @@ main{
 	display: block;
 }
 
-main textarea{
+.create textarea{
 	width: 90%;
 	min-height: 100px;
 	padding: 1%;
@@ -523,10 +518,9 @@ main textarea{
 	text-align: center;
 	background: #02B875;
 	color: #ffffff;
-    width: 40%;
     font-size: 15px;
-    height: 40px;
     margin: auto;
+    padding: 1%;
 }
 
 
