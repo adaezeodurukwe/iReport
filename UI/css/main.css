@@ -438,7 +438,7 @@ main{
 	width: auto;
 	display: block;
 	margin: 0 0 2% 0;
-	padding: 0.5%;
+	padding: 1%;
 	background: #FFFACD;
 	border-color: #FFFACD;
 }
@@ -452,6 +452,7 @@ main{
 	height: 150px;
 	margin: 2% 2% 0 0;
 }
+
 .cards-footer{
 	margin-top: 5%
 }
@@ -460,7 +461,7 @@ main{
 	background: #02B875;
 	color: #ffffff;
 	border-color: #02B875;
-	padding: 0.5%;
+	padding: 1%;
 	width: 80px;
 }
 .view:hover{
@@ -472,7 +473,7 @@ main{
 	background: #ffffff;
 	border-color: #F08080;
 	color: #B22222;
-	padding: 0.5%;
+	padding: 1%;
 	width: 80px;
 }
 
@@ -486,27 +487,27 @@ main{
 	margin: auto
 }
 
-main form{
+.create form{
 	display: block;
 	width: 100%;
 	margin: 2%;
 }
 
-main form input{
+.create form input{
 	width: 90%;
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
 }
 
-main form select{
+.create form select{
 	width: 92%;
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
 }
 
-main form label{
+.create form label{
 	display: block;
 }
 
@@ -534,9 +535,8 @@ main textarea{
 }
 
 /*Admin page*/
-
-.cards form{
-	width: 100%;
+.max-cards form{
+	width: 60%;
 }
 
 /*FAQ page*/
