@@ -17,10 +17,12 @@
 				</div>
 				<a href="index.html"><h2>iReporter</h2></a>
 				<div class="links">
-					<ul>	
+					<ul>				
 						<li><a href="records.html">Records |</a></li>
+						<li><a href="profile.html">Profile |</a></li>
 						<li><a href="faq.html">Faq |</a></li>
-						<li><a href="profile.html">Profile</a></li>
+						<li><a href="signup.html">Sign Up |</a></li>
+						<li><a href="signin.html">Login</a></li>
 					</ul>
 				</div>					
 			</div>				
@@ -28,35 +30,38 @@
 
 		<div class="mobile-nav">	
 			<p><a href="records.html">Records </a></p>
-			<p><a href="faq.html">Faq </a></p>
 			<p><a href="profile.html">Profile</a></p>
-			<p><a href="signin.html">Log in</a></p>
-			<p><a href="signup.html">Join</a></p>
+			<p><a href="faq.html">Faq </a></p>			
+			<p><a href="signup.html">Sign Up</a></p>
+			<p><a href="signin.html">Login</a></p>
 		</div>
 		
 		<div class="profile">
 			<h2>Profile</h2>
 			<main>
-				<b>Add Record</b>
+				
 				<div class="min-nav">
 					<ul>
 						<li><a href=""><img src="img/logout.png">Logout</a></li>
 						<li><a href="create.html"><img src="img/add1.png">Add</a></li>
-						<li><a href="profile.html"><img src="img/full.png">Records</a></li>
+						<li><a href="profile.html"><img src="img/full.png">My Records</a></li>
 					</ul>
 				</div>
-				<br>
+				<h3>Add Record</h3>
 				<div class="create">
-					<form method="POST">
-		                <label for="title"><b>Title</b></label>
-		                <input type="text" name="title">
-
+					<form method="POST">	                
 		                <label for="type"><b>Type</b></label>
 						<select name="type">
 							<option value="redflag">Red Flag</option>
 							<option value="intervention">Intervention</option>
 						</select> 
-		                
+
+						<label for="location"><b>Location </b><i>(Longitude, Latitude)</i></label>
+		                <input type="text" name="location">
+
+		                <label for="state"><b>State </b></label>
+		                <input type="text" name="state">
+
 		                <label for="comment"><b>Comment</b></label>
 		                <textarea name="comment"></textarea>
 
@@ -75,7 +80,15 @@
 		
 	</div>
 	<footer>
-		<p>&copy Adaeze Odurukwe</p>
+		<b>Quick links</b>
+			<ul>
+				<li>Add Record</li>
+				<li>Records</li>
+				<li>Profile</li>
+				<li>Faq</li>
+			</ul>
+		</div>
+		<h4>&copy Adaeze Odurukwe</h4>
 	</footer>
 </body>
 </html>
