@@ -7,8 +7,8 @@ const createUserTable = () => {
     const data = `CREATE TABLE IF NOT EXISTS users(
         id UUID PRIMARY KEY,
         firstname TEXT NOT NULL,
-        lasttname TEXT NOT NULL,
-        othernames TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        othernames TEXT,
         email VARCHAR(200) UNIQUE NOT NULL,
         password VARCHAR(200) NOT NULL,
         phone VARCHAR(15) NOT NULL,
