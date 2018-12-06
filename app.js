@@ -26,7 +26,7 @@ const port = parseInt(process.env.PORT, 10) || 3000;
 app.listen(port);
 
 // Set route
-app.use('/api/v1/red-flags', router);
+app.use('/api/v1/', router);
 
 app.use('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/index.html'));
