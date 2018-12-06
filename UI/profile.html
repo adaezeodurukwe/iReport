@@ -37,18 +37,18 @@
 		</div>
 		
 		<div class="profile">
-			<h2>Profile</h2>
+			<h2>PROFILE</h2>
 			<main>
 				
 				<div class="min-nav">
 					<ul>
-						<li><a href=""><img src="img/logout.png">Logout</a></li>
-						<li><a href="create.html"><img src="img/add1.png">Add</a></li>
-						<li><a href="profile.html"><img src="img/full.png">My Records</a></li>
+						<li><a href=""><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
+						<li><a href="create.html"><img src="img/add1.png"><span class="ntext">Add</span></a></li>
+						<li><a href="profile.html"><img src="img/apps.png"><span class="ntext">My Records</span></a></li>
 					</ul>
 				</div>
 
-				<h3>My Records</h3>
+				<h3>MY RECORDS</h3>
 				
 
 				<div class="status">
@@ -71,42 +71,84 @@
 					<div class="max-cards">
 						<div class="cards-body">
 							<span><b>Red-Flag</b><br><b>Status: </b> Draft</span>
-							<span><b>Location: </b> 4.55098, 50.9000 <button onclick="location.href='create.html';">Edit Location</button></span>
-							<span><b>Comment: </b> Some comment <button onclick="location.href='create.html';">Edit omment</button></span>
-							<span><b>Images: </b><br> <img src="img/road.jpg"><img src="img/road1.jpg"> <br> <button onclick="location.href='create.html';">Add images</button></span>
+							<span><b>Location: </b>Nicon town, Lekki phase II, Lagos, Nigeria</span>
+							<span><b>Comment: </b> Some comment </span>
+							<span><b>Images: </b><br> <img src="img/road.jpg"><img src="img/road1.jpg"></span>
 						</div>
+						<span>
+							<form>
+								<label for="edit"><b>Edit Record </b>(<i>Choose field to edit</i>)</label>
+								<select name="edit">
+									<option value="location">Location</option>
+									<option value="comment">Comment</option>
+									<option value="images">Images</option>
+								</select>
+								<button onclick="location.href='create.html';">Edit</button>
+							</form>
+						</span>
 						<div class="cards-footer">
 							<button onclick="location.href='details.html';" class="view">View</button>
 							<button class="delete">Delete</button>
 						</div>
 						
 					</div>
+
 					<div class="max-cards">
 						<div class="cards-body">
 							<span><b>Intervention</b><br><b>Status: </b> Draft</span>
-							<span><b>Location: </b> 4.55098, 50.9000 <button>Edit Location</button></span>
-							<span><b>Comment: </b> Some comment <button>Edit Comment</button></span>
-							<span><b>Images: </b><br> <img src="img/road.jpg"><img src="img/road1.jpg"> <br> <button>Add images</button></span>
+							<span><b>Location: </b>Abuja, Nigeria </span>
+							<span><b>Comment: </b> Some comment </span>
+							<span><b>Images: </b><br> <img src="img/road.jpg"><img src="img/road1.jpg"></span>
 						</div>
+						<span>
+							<form>
+								<label for="edit"><b>Edit Record </b>(<i>Choose field to edit</i>)</label>
+								<select name="edit">
+									<option value="location">Location</option>
+									<option value="comment">Comment</option>
+									<option value="images">Images</option>
+								</select>
+								<button onclick="location.href='create.html';">Edit</button>
+							</form>
+						</span>
 						<div class="cards-footer">
 							<button onclick="location.href='details.html';" class="view">View</button>
 							<button class="delete">Delete</button>
-						</div>		
+						</div>
+						
 					</div>
 				</div>
 			</main>
 		</div>
 	</div>
 	<footer>
-		<b>Quick links</b>
-			<ul>
-				<li>Add Record</li>
-				<li>Records</li>
-				<li>Profile</li>
-				<li>Faq</li>
-			</ul>
+		<div class="foot-body">
+			<div class="foot-note">
+				<b>QUICK LINKS</b>
+				<ul>
+					<li>Add Record </li>
+					<li>All Records</li>
+					<li>Profile</li>
+					<li>Faq</li>
+				</ul>
+			</div>
+			<div class="foot-note">
+				<b>SUBSCRIBE</b>
+				<p>Enter email for the latest news</p>
+				<form>
+					<input type="text">
+					<button>Subscribe</button>
+				</form>
+			</div>
+			<div class="foot-note">
+				<b>CONTACT US</b>
+				<p><img src="img/phone.png">+2340136770975</p>
+				<p><img src="img/mail.png">daizyodurukwe@gmail.com</p>
+			</div>
 		</div>
+		
 		<h4>&copy Adaeze Odurukwe</h4>
 	</footer>
+</body>
 </body>
 </html>

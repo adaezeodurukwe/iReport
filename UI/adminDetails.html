@@ -49,19 +49,31 @@
 					<p><h4>Comment:</h4>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.  </p>
 				</div>
 				<div class="det-images">
-					<h3>Images</h2>
+					<h3>Images</h3>
 
 					<div class="row">
-					  <div class="column">
-					    <img src="img/road.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-					  </div>
+					  	<div class="column">
+					    	<img src="img/road.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+					  	</div>
 
-					  <div class="column">
-					    <img src="img/road1.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-					  </div>
+					  	<div class="column">
+					    	<img src="img/road1.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+					  	</div>
+					</div>
 				</div>
-			</div>
-
+				<div class="updateStatus">
+					<span>
+						<form>
+							<label for="change"><h3>Change status</h3></label>
+							<select name="change">
+								<option value="redflag">Under Investigation</option>
+								<option value="redflag">Resolve</option>
+								<option value="intervention">Reject</option>
+							</select>
+							<button>Update</button>
+						</form>
+					</span>
+				</div>
 			</div><br>
 			<!-- Modal gallery (lightbox) solution from https://www.w3schools.com/howto/howto_js_lightbox.asp -->
 			<div id="myModal" class="modal">
