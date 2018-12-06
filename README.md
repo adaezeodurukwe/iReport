@@ -28,3 +28,23 @@ The app enables users to view all incidents reported. To add an incident, a user
 - Gh-pages - https://adaezeodurukwe.github.io/iReport/UI/index.html
 
 - API endpoints - https://ireporter-endpoints.herokuapp.com/
+
+**Endpoints**
+
+- POST: /api/v1/red-flags
+
+- GET: /api/v1/red-flags
+
+- GET: /api/v1/red-flags/:id
+
+- PATCH: /api/v1/red-flags/:id/location
+
+- PATCH: /api/v1/red-flags/:id/comment
+
+- DELETE: /api/v1/red-flags/:id
+
+**Test Endpoints on heroku**
+
+- Get all data -  https://ireporter-endpoints.herokuapp.com/api/v1/red-flags
+
+- Get one data - https://ireporter-endpoints.herokuapp.com/api/v1/red-flags/1
