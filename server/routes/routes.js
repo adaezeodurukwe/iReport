@@ -15,5 +15,6 @@ router.delete('/red-flags/:id', Incidents.deleteIncident);
 
 // User routes
 router.post('/auth/signup', User.createUser);
+router.post('/auth/signin', User.login);
 
 export default router;
