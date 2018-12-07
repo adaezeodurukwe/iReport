@@ -39,6 +39,35 @@ class User {
             });
         }
     }
+
+    /**
+     * @async login
+     * @param {*} req 
+     * @param {*} res
+     * @returns {object} 
+     */
+    static async login(req, res) {
+        try {
+            const user = await Model.getOne(req.body.email);
+            const match = await Helper.compare(req.body.password, user.password);
+            if (!match) {
+                return res.status(400).send({ message: 'incorrect crdentials' });
+            }
+            const userToken = Helper.generateToken(user.id);
+            return res.status(200).send({
+                status: 200,
+                data: [{
+                    token: userToken,
+                    // eslint-disable-next-line object-shorthand
+                    user: user,
+                }],
+            });
+        } catch (error) {
+            return res.status(404).send({
+                message: error,
+            });
+        }
+    }
 }
 
 export default User;

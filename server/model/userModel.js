@@ -36,6 +36,19 @@ class Model {
         const { rows } = await pool.query(sql, values);
         return rows[0];
     }
+
+    /**
+     * @async getOne
+     * @param {*} email
+     * @returns {object}
+     */
+    static async getOne(email) {
+        const sql = 'SELECT * FROM users WHERE email = $1';
+        const values = [email];
+
+        const { rows } = await pool.query(sql, values);
+        return rows[0];
+    }
 }
 
 export default Model;
