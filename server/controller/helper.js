@@ -12,4 +12,9 @@ const compare = (plainPassword, hashedPassword) => bcrypt.compare(plainPassword,
 // Generate token
 const generateToken = id => jwt.sign({ userId: id }, process.env.SECRET, { expiresIn: '7d' });
 
-export { encryptedPassword, generateToken, compare };
+// Verify yoken
+const verifyToken = token => jwt.verify(token, process.env.SECRET);
+
+export {
+    encryptedPassword, generateToken, compare, verifyToken,
+};

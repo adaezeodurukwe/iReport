@@ -49,6 +49,14 @@ class Model {
         const { rows } = await pool.query(sql, values);
         return rows[0];
     }
+
+    static async getById(id) {
+        const sql = 'SELECT * FROM users WHERE id = $1';
+        const values = [id];
+
+        const { rows } = await pool.query(sql, values);
+        return rows[0];
+    }
 }
 
 export default Model;
