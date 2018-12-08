@@ -42,9 +42,9 @@ class User {
 
     /**
      * @async login
-     * @param {*} req 
+     * @param {*} req
      * @param {*} res
-     * @returns {object} 
+     * @returns {object}
      */
     static async login(req, res) {
         try {
