@@ -1,17 +1,19 @@
 // Routes
 
 import express from 'express';
-import Incidents from '../controller/controller';
+// import Incidents from '../controller/controller';
 import User from '../controller/userController';
+import Records from '../controller/redflagController';
+import Auth from '../middleware/auth';
 
 const router = express.Router();
 
-router.get('/red-flags/', Incidents.allIncidents);
-router.get('/red-flags/:id', Incidents.oneIncident);
-router.post('/red-flags/', Incidents.createIncident);
-router.patch('/red-flags/:id/location', Incidents.modifyIncidentLocation);
-router.patch('/red-flags/:id/comment', Incidents.modifyIncidentComment);
-router.delete('/red-flags/:id', Incidents.deleteIncident);
+router.post('/red-flags/', Auth, Records.createRecord);
+router.get('/red-flags/', Auth, Records.getAllRedflags);
+router.get('/red-flags/:id', Auth, Records.getOneRedflag);
+router.patch('/red-flags/:id/location', Auth, Records.updateRedflagLocation);
+router.patch('/red-flags/:id/comment', Auth, Records.updateRedflagComment);
+router.delete('/red-flags/:id', Auth, Records.deleteRedflag);
 
 // User routes
 router.post('/auth/signup', User.createUser);
