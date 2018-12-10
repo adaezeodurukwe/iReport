@@ -23,7 +23,7 @@ class Records {
                 status: 201,
                 data: [{
                     id: newRecord.id,
-                    message: 'Created intervention record',
+                    message: 'Created red-flag record',
                     record: newRecord,
                 },
                 ],

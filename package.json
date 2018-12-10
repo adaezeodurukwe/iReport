@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node - app.js",
     "devstart": "nodemon --exec babel-node - app.js",
-    "test": "nyc mocha --require babel-register ./test/recordstest --exit && nyc report --reporter=text-lcov | coveralls"
+    "test": "nyc mocha --require babel-register ./test/recordstest --exit && nyc report --reporter=text-lcov | coveralls",
+    "devtest": "mocha --require babel-register ./test/recordstest --exit"
   },
   "repository": {
     "type": "git",
