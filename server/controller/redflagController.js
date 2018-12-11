@@ -83,11 +83,11 @@ class Records {
      */
     static async updateRedflagLocation(req, res) {
         try {
-            const updateLocation = await Model.updateLocation(req.params.id, req.body.location);
+            const updatedLocation = await Model.updateLocation(req.params.id, req.body.location);
             return res.status(200).send({
                 status: 200,
                 message: 'Updated red-flag record\'s location',
-                data: updateLocation,
+                data: updatedLocation,
             });
         } catch (error) {
             return res.status(500).send({
