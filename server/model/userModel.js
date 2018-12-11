@@ -12,7 +12,7 @@ class Model {
     /**
      * @async create
      * @param {*} firstname
-     * @param {*} lasttname
+     * @param {*} lastname
      * @param {*} othernames
      * @param {*} email
      * @param {*} password
@@ -20,12 +20,15 @@ class Model {
      * @param {*} isAdmin
      * @returns {object}
      */
-    static async create(firstname, lasttname, othernames, email, password, phone, isAdmin = false) {
-        const sql = 'INSERT INTO users(id, firstname, lastname, othernames, email, password, phone, registered, isAdmin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
+    static async create(
+        firstname, lastname, username, othernames, email, password, phone, isAdmin = false,
+    ) {
+        const sql = 'INSERT INTO users(id, firstname, lastname, username, othernames, email, password, phone, registered, isAdmin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
         const values = [
             uuidv4(),
             firstname,
-            lasttname,
+            lastname,
+            username,
             othernames,
             email,
             password,

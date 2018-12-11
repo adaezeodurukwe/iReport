@@ -19,7 +19,8 @@ class User {
         try {
             const newUser = await Model.create(
                 req.body.firstname,
-                req.body.lasttname,
+                req.body.lastname,
+                req.body.username,
                 req.body.othernames,
                 req.body.email,
                 password,

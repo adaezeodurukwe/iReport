@@ -8,6 +8,7 @@ const createUserTable = () => {
         id UUID PRIMARY KEY,
         firstname TEXT NOT NULL,
         lastname TEXT NOT NULL,
+        username TEXT NOT NULL,
         othernames TEXT,
         email VARCHAR(200) UNIQUE NOT NULL,
         password VARCHAR(200) NOT NULL,
@@ -29,7 +30,7 @@ const createRecordsTable = () => {
     const data = `CREATE TABLE IF NOT EXISTS records(
         id UUID PRIMARY KEY,
         createdOn TIMESTAMP NOT NULL,
-        createdBy VARCHAR(100) NOT NULL,
+        createdBy UUID REFERENCES users(id),
         type TEXT NOT NULL,
         location VARCHAR(100) NOT NULL,
         status TEXT NOT NULL,

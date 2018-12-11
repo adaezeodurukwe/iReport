@@ -3,7 +3,7 @@
 import * as Helper from '../controller/helper';
 
 const Auth = async (req, res, next) => {
-    const token = req.header['x-access-token'];
+    const token = req.headers['x-access-token'];
     if (!token) {
         return res.status(401).send({ message: 'unauthorized' });
     }
