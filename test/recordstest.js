@@ -380,6 +380,9 @@ describe('before testing', () => {
             });
         });
 
+        /**
+         * Test PATCH comment endpoints
+         */
         // Test PATCH comment of red flag endpoint
         describe('PATCH API endpoint /red-flags/<red-flag-id>/comment', () => {
             it('should update comment on a red flag', (done) => {
@@ -394,7 +397,7 @@ describe('before testing', () => {
                         expect(res.body).to.be.an('object');
                         expect(res.body).to.have.property('status').to.be.an('number');
                         expect(res.body).to.have.property('data').to.be.an('object');
-                        expect(res.body).to.have.property('message').to.be.equal('Updated red-flag record\'s comment');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated red flag record\'s comment');
                         expect(res.body.data).to.have.property('id');
                         expect(res.body.data).to.have.property('comment');
                         done();
@@ -411,6 +414,28 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(404);
                         expect(res.body).to.be.an('object');
+                        done();
+                    });
+            });
+        });
+
+        // Test PATCH comment of intervention endpoint
+        describe('PATCH API endpoint /interventions/<interventions-id>/comment', () => {
+            it('should update comment on a intervention', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/interventions/${interventionId}/comment/`)
+                    .set('x-access-token', token)
+                    .send({
+                        comment: 'new comment',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.an('number');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated intervention record\'s comment');
+                        expect(res.body.data).to.have.property('id');
+                        expect(res.body.data).to.have.property('comment');
                         done();
                     });
             });

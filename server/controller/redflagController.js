@@ -140,20 +140,25 @@ class Records {
      * @param {*} res
      * @returns {object}
      */
-    static async updateRedflagComment(req, res) {
+    static async updateRecordComment(req, res) {
+        const returnmessage = req.message;
         try {
-            const updatedComment = await Model.updateComment(req.params.id, req.body.comment);
+            const updatedComment = await Model.updateComment(
+                req.params.id,
+                req.body.comment,
+                returnmessage,
+            );
 
             if (!updatedComment) {
                 return res.status(404).send({
                     status: 404,
-                    message: 'Red-flag not found',
+                    message: `${returnmessage} not found`,
                 });
             }
 
             return res.status(200).send({
                 status: 200,
-                message: 'Updated red-flag record\'s comment',
+                message: `Updated ${returnmessage} record's comment`,
                 data: updatedComment,
             });
         } catch (error) {

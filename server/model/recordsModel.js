@@ -90,9 +90,9 @@ class Model {
      * @param {*} comment
      * @returns {object}
      */
-    static async updateComment(recordId, comment) {
-        const sql = 'UPDATE records SET comment = $1 WHERE id = $2 RETURNING id, comment';
-        const values = [comment, recordId];
+    static async updateComment(recordId, comment, type) {
+        const sql = 'UPDATE records SET comment = $1 WHERE id = $2 AND type = $3 RETURNING id, comment';
+        const values = [comment, recordId, type];
 
         const { rows } = await pool.query(sql, values);
         return rows[0];
