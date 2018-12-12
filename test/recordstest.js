@@ -62,7 +62,7 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('status').to.be.a('number');
                         expect(res.body).to.have.property('data').to.be.an('array');
                         expect(res.body.data[0]).to.have.property('id');
-                        expect(res.body.data[0]).to.have.property('message').to.be.equal('Created red-flag record');
+                        expect(res.body.data[0]).to.have.property('message').to.be.equal('Created red flag record');
                         redflagId = res.body.data[0].id;
                         done();
                     });
