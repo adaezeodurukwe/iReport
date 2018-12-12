@@ -322,7 +322,7 @@ describe('before testing', () => {
         /**
          * Test PATCH location endpoints
          */
-        // Test PATCH location of red flag endpoint
+        // Test PATCH red flag location endpoint
         describe('PATCH API endpoint /red-flags/<red-flag-id>/location', () => {
             it('should update location of red flag', (done) => {
                 chai.request(app)
@@ -358,7 +358,7 @@ describe('before testing', () => {
             });
         });
 
-        // Test PATCH location of red flag endpoint
+        // Test PATCH intervention location endpoint
         describe('PATCH API endpoint /interventions/<interventions-id>/location', () => {
             it('should update location of intervention', (done) => {
                 chai.request(app)
@@ -383,7 +383,7 @@ describe('before testing', () => {
         /**
          * Test PATCH comment endpoints
          */
-        // Test PATCH comment of red flag endpoint
+        // Test PATCH red flag comment endpoint
         describe('PATCH API endpoint /red-flags/<red-flag-id>/comment', () => {
             it('should update comment on a red flag', (done) => {
                 chai.request(app)
@@ -419,7 +419,7 @@ describe('before testing', () => {
             });
         });
 
-        // Test PATCH comment of intervention endpoint
+        // Test PATCH intervention comment endpoint
         describe('PATCH API endpoint /interventions/<interventions-id>/comment', () => {
             it('should update comment on a intervention', (done) => {
                 chai.request(app)
@@ -441,9 +441,12 @@ describe('before testing', () => {
             });
         });
 
-        // Test DELETE incident endpoint
+        /**
+         * Test DELETE endpoints
+         */
+        // Test DELETE red flag endpoint
         describe('DELETE API endpoint /api/v1/red-flags/<red-flag-id>', () => {
-            it('should return all incidents', (done) => {
+            it('should delete red flag', (done) => {
                 chai.request(app)
                     .delete(`/api/v1/red-flags/${redflagId}`)
                     .set('x-access-token', token)
@@ -451,7 +454,7 @@ describe('before testing', () => {
                         expect(res).to.have.status(200);
                         expect(res.body).to.be.an('object');
                         expect(res.body).to.have.property('status').to.be.an('number');
-                        expect(res.body).to.have.property('message').to.be.equal('red-flag record has been deleted');
+                        expect(res.body).to.have.property('message').to.be.equal('red flag record has been deleted');
                         expect(res.body).to.have.property('data').to.be.an('object');
                         expect(res.body.data).to.have.property('id');
                         done();
@@ -461,6 +464,35 @@ describe('before testing', () => {
             it('should return error with invalid id', (done) => {
                 chai.request(app)
                     .delete('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3')
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(404);
+                        expect(res.body).to.be.an('object');
+                        done();
+                    });
+            });
+        });
+
+        // Test DELETE intervention endpoint
+        describe('DELETE API endpoint /api/v1/interventions/<interventions-id>', () => {
+            it('should delete intervention', (done) => {
+                chai.request(app)
+                    .delete(`/api/v1/interventions/${interventionId}`)
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.an('number');
+                        expect(res.body).to.have.property('message').to.be.equal('intervention record has been deleted');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        expect(res.body.data).to.have.property('id');
+                        done();
+                    });
+            });
+
+            it('should return error with invalid id', (done) => {
+                chai.request(app)
+                    .delete('/api/v1/interventions/3818ea1f-bb6c-43bf-9503-d48957c8a6d3')
                     .set('x-access-token', token)
                     .then((res) => {
                         expect(res).to.have.status(404);

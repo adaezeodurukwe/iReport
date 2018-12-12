@@ -104,9 +104,9 @@ class Model {
      * @param {*} recordId
      * @returns {object}
      */
-    static async delete(userId, recordId) {
-        const sql = 'DELETE FROM records WHERE createdBy = $1 AND id = $2 RETURNING id';
-        const values = [userId, recordId];
+    static async delete(userId, recordId, type) {
+        const sql = 'DELETE FROM records WHERE createdBy = $1 AND id = $2 AND type = $3 RETURNING id';
+        const values = [userId, recordId, type];
 
         const { rows } = await pool.query(sql, values);
         return rows[0];
