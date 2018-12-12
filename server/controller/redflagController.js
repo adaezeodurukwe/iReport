@@ -124,7 +124,7 @@ class Records {
 
             return res.status(200).send({
                 status: 200,
-                message: 'Updated red-flag record\'s location',
+                message: `Updated ${returnmessage} record's location`,
                 data: updatedLocation,
             });
         } catch (error) {
