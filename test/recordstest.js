@@ -234,7 +234,7 @@ describe('before testing', () => {
          */
         // Test GET all red flags endpoint
         describe('GET API endpoint /api/v1/red-flags', () => {
-            it('should return all incidents', (done) => {
+            it('should return all red flags', (done) => {
                 chai.request(app)
                     .get('/api/v1/red-flags')
                     .set('x-access-token', token)
@@ -250,7 +250,7 @@ describe('before testing', () => {
 
         // Test GET all interventions endpoint
         describe('GET API endpoint /api/v1/interventions', () => {
-            it('should return all incidents', (done) => {
+            it('should return all interventions', (done) => {
                 chai.request(app)
                     .get('/api/v1/interventions')
                     .set('x-access-token', token)
