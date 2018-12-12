@@ -10,6 +10,8 @@ chai.use(chaiHttp);
 
 let token;
 let redflagId;
+// eslint-disable-next-line no-unused-vars
+let interventionId;
 
 describe('before testing', () => {
     before(async () => {
@@ -43,7 +45,7 @@ describe('before testing', () => {
          */
         // Test POST red flag endpoint
         describe('POST API endpoint api/v1/red-flags', () => {
-            it('POST a report', (done) => {
+            it('POST a red flag report', (done) => {
                 chai.request(app)
                     .post('/api/v1/red-flags')
                     .set('x-access-token', token)
@@ -136,7 +138,7 @@ describe('before testing', () => {
 
         // Test POST intervention endpoint
         describe('POST API endpoint api/v1/intervention', () => {
-            it('POST a report', (done) => {
+            it('POST an intervention report', (done) => {
                 chai.request(app)
                     .post('/api/v1/intervention')
                     .set('x-access-token', token)
@@ -154,7 +156,7 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('data').to.be.an('array');
                         expect(res.body.data[0]).to.have.property('id');
                         expect(res.body.data[0]).to.have.property('message').to.be.equal('Created intervention record');
-                        redflagId = res.body.data[0].id;
+                        interventionId = res.body.data[0].id;
                         done();
                     });
             });
@@ -227,9 +229,12 @@ describe('before testing', () => {
             });
         });
 
-        // Test GET all endpoint
+        /**
+         * Test GET all endpoint
+         */
+        // Test GET all red flags endpoint
         describe('GET API endpoint /api/v1/red-flags', () => {
-            it('should return all incidents', (done) => {
+            it('should return all red flags', (done) => {
                 chai.request(app)
                     .get('/api/v1/red-flags')
                     .set('x-access-token', token)
@@ -243,7 +248,26 @@ describe('before testing', () => {
             });
         });
 
-        // Test GET one endpoint
+        // Test GET all interventions endpoint
+        describe('GET API endpoint /api/v1/interventions', () => {
+            it('should return all interventions', (done) => {
+                chai.request(app)
+                    .get('/api/v1/interventions')
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('array');
+                        done();
+                    });
+            });
+        });
+
+        /**
+         * Test GET endpoints
+         */
+        // Test GET one red flag endpoint
         describe('GET API endpoint /api/v1/red-flags/<red-flag-id>', () => {
             it('should get one redflag', (done) => {
                 chai.request(app)

@@ -47,6 +47,14 @@ class Model {
         return rows;
     }
 
+    static async getByType(userId, type) {
+        const sql = 'SELECT * FROM records WHERE createdBy = $1 AND type = $2';
+        const values = [userId, type];
+
+        const { rows } = await pool.query(sql, values);
+        return rows;
+    }
+
     /**
      * @async getOne
      * @param {*} userId

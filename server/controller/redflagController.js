@@ -45,7 +45,21 @@ class Records {
      */
     static async getAllRedflags(req, res) {
         try {
-            const allRecords = await Model.getAll(req.userId);
+            const allRecords = await Model.getByType(req.userId, 'red flag');
+            return res.status(200).send({
+                status: 200,
+                data: allRecords,
+            });
+        } catch (error) {
+            return res.status(500).send({
+                message: error,
+            });
+        }
+    }
+
+    static async getAllInterventions(req, res) {
+        try {
+            const allRecords = await Model.getByType(req.userId, 'intervention');
             return res.status(200).send({
                 status: 200,
                 data: allRecords,

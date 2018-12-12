@@ -66,6 +66,12 @@ router.post(
 );
 
 
+router.get(
+    '/interventions',
+    Auth,
+    Records.getAllInterventions,
+);
+
 // User routes
 router.post(
     '/auth/signup',
