@@ -293,6 +293,32 @@ describe('before testing', () => {
             });
         });
 
+        // Test GET one intervention endpoint
+        describe('GET API endpoint /api/v1/interventions/<intervention-id>', () => {
+            it('should get one intervention', (done) => {
+                chai.request(app)
+                    .get(`/api/v1/interventions/${interventionId}`)
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        done();
+                    });
+            });
+
+            it('should return error with an invalid id', (done) => {
+                chai.request(app)
+                    .get('/api/v1/interventions/3818ea1f-bb6c-43bf-9503-d48957c8a6d3')
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(404);
+                        done();
+                    });
+            });
+        });
+
         // Test PATCH location of red flag endpoint
         describe('PATCH API endpoint /red-flags/<red-flag-id>/location', () => {
             it('should update location of red flag', (done) => {
