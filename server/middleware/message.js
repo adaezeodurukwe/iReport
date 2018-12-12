@@ -6,7 +6,7 @@ const intervention = (req, res, next) => {
 };
 
 const redflag = (req, res, next) => {
-    req.message = 'red-flag';
+    req.message = 'red flag';
     return next();
 };
 

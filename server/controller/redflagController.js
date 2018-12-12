@@ -77,14 +77,15 @@ class Records {
      * @param {*} res
      * @returns {object}
      */
-    static async getOneRedflag(req, res) {
+    static async getOneRecord(req, res) {
+        const returnmessage = req.message;
         try {
-            const oneRedflag = await Model.getOne(req.userId, req.params.id);
+            const oneRedflag = await Model.getOne(req.userId, req.params.id, returnmessage);
 
             if (!oneRedflag) {
                 return res.status(404).send({
                     status: 404,
-                    message: 'Red-flag not found',
+                    message: `${returnmessage} not found`,
                 });
             }
 

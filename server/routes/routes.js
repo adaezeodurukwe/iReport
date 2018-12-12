@@ -30,7 +30,8 @@ router.get(
     '/red-flags/:id',
     Auth,
     Validate.parameter,
-    Records.getOneRedflag,
+    Message.redflag,
+    Records.getOneRecord,
 );
 
 router.patch(
@@ -70,6 +71,13 @@ router.get(
     '/interventions',
     Auth,
     Records.getAllInterventions,
+);
+
+router.get(
+    '/interventions/:id',
+    Auth,
+    Message.intervention,
+    Records.getOneRecord,
 );
 
 // User routes
