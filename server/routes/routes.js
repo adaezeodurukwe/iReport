@@ -48,7 +48,8 @@ router.patch(
     Validate.updateComment,
     Validate.validationHandler,
     Auth,
-    Records.updateRedflagComment,
+    Message.redflag,
+    Records.updateRecordComment,
 );
 
 router.delete(
@@ -88,6 +89,15 @@ router.patch(
     Auth,
     Message.intervention,
     Records.updateRecordLocation,
+);
+
+router.patch(
+    '/interventions/:id/comment',
+    Validate.updateComment,
+    Validate.validationHandler,
+    Auth,
+    Message.intervention,
+    Records.updateRecordComment,
 );
 
 // User routes
