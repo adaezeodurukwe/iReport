@@ -50,6 +50,14 @@ class User {
     static async login(req, res) {
         try {
             const user = await Model.getOne(req.body.email);
+
+            if (!user) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'user not found',
+                });
+            }
+
             const match = await Helper.compare(req.body.password, user.password);
             if (!match) {
                 return res.status(400).send({ message: 'incorrect crdentials' });

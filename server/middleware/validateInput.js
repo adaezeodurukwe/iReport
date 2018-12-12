@@ -10,7 +10,7 @@ const signUp = [
 
     body('email', 'Enter valid email').exists().isEmail(),
 
-    body('password', 'password').exists(),
+    body('password', 'Password should contain at least four characters').exists().isLength({ min: 4 }),
 
 ];
 
@@ -25,7 +25,7 @@ const signin = [
 const record = [
     body('type', 'Type is required').exists(),
 
-    body('type', 'type should be either \'red flag\' or \'incident\'').isIn('red flag', 'incident'),
+    body('type', 'type should be either \'red flag\' or \'intervention\'').isIn('red flag', 'intervention'),
 
     body('location', 'Location is required').exists(),
 

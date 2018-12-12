@@ -64,6 +64,14 @@ class Records {
     static async getOneRedflag(req, res) {
         try {
             const oneRedflag = await Model.getOne(req.userId, req.params.id);
+
+            if (!oneRedflag) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+
             return res.status(200).send({
                 status: 200,
                 data: oneRedflag,
@@ -84,6 +92,14 @@ class Records {
     static async updateRedflagLocation(req, res) {
         try {
             const updatedLocation = await Model.updateLocation(req.params.id, req.body.location);
+
+            if (!updatedLocation) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+
             return res.status(200).send({
                 status: 200,
                 message: 'Updated red-flag record\'s location',
@@ -104,11 +120,19 @@ class Records {
      */
     static async updateRedflagComment(req, res) {
         try {
-            const updateComment = await Model.updateComment(req.params.id, req.body.comment);
+            const updatedComment = await Model.updateComment(req.params.id, req.body.comment);
+
+            if (!updatedComment) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+
             return res.status(200).send({
                 status: 200,
                 message: 'Updated red-flag record\'s comment',
-                data: updateComment,
+                data: updatedComment,
             });
         } catch (error) {
             return res.status(500).send({
@@ -126,6 +150,14 @@ class Records {
     static async deleteRedflag(req, res) {
         try {
             const deleteRedflag = await Model.delete(req.userId, req.params.id);
+
+            if (!deleteRedflag) {
+                return res.status(404).send({
+                    status: 404,
+                    message: 'Red-flag not found',
+                });
+            }
+
             return res.status(200).send({
                 status: 200,
                 message: 'red-flag record has been deleted',
