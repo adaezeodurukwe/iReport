@@ -22,10 +22,20 @@ const signin = [
 ];
 
 // Validate create record input
-const record = [
+const redflagInput = [
     body('type', 'Type is required').exists(),
 
-    body('type', 'type should be either \'red flag\' or \'intervention\'').isIn('red flag', 'intervention'),
+    body('type', 'Type must be \'red flag\'').equals('red flag'),
+
+    body('location', 'Location is required').exists(),
+
+    body('comment', 'Comment is required').exists().isLength({ min: 10 }),
+];
+
+const interventionInput = [
+    body('type', 'Type is required').exists(),
+
+    body('type', 'Type must be \'intervention\'').equals('intervention'),
 
     body('location', 'Location is required').exists(),
 
@@ -60,5 +70,12 @@ const validationHandler = (req, res, next) => {
 
 
 export {
-    signUp, signin, record, updateLocation, updateComment, parameter, validationHandler,
+    signUp,
+    signin,
+    redflagInput,
+    interventionInput,
+    updateLocation,
+    updateComment,
+    parameter,
+    validationHandler,
 };

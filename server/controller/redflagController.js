@@ -10,6 +10,8 @@ class Records {
      * @returns {object}
      */
     static async createRecord(req, res) {
+        const returnmessage = req.message;
+
         try {
             const newRecord = await Model.create(
                 req.userId,
@@ -23,7 +25,7 @@ class Records {
                 status: 201,
                 data: [{
                     id: newRecord.id,
-                    message: 'Created red-flag record',
+                    message: `Created ${returnmessage} record`,
                     record: newRecord,
                 },
                 ],

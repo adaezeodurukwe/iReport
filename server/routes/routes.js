@@ -5,6 +5,7 @@ import User from '../controller/userController';
 import Records from '../controller/redflagController';
 import Auth from '../middleware/auth';
 import * as Validate from '../middleware/validateInput';
+import * as Message from '../middleware/message';
 
 const router = express.Router();
 
@@ -12,9 +13,10 @@ const router = express.Router();
 // Red flag routes
 router.post(
     '/red-flags/',
-    Validate.record,
+    Validate.redflagInput,
     Validate.validationHandler,
     Auth,
+    Message.redflag,
     Records.createRecord,
 );
 
@@ -51,6 +53,16 @@ router.delete(
     '/red-flags/:id',
     Auth,
     Records.deleteRedflag,
+);
+
+// Intervention routes
+router.post(
+    '/intervention',
+    Validate.interventionInput,
+    Validate.validationHandler,
+    Auth,
+    Message.intervention,
+    Records.createRecord,
 );
 
 
