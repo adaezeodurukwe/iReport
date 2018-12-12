@@ -16,11 +16,6 @@ describe('before testing', () => {
         await schema.createRecordsTable();
         await schema.createUserTable();
     });
-    after(async () => {
-        await schema.dropRecordsTable();
-        await schema.dropUserTable();
-    });
-
     describe('Before endpoints tests', () => {
         it('sign up user and return token', (done) => {
             chai.request(app)
@@ -29,7 +24,7 @@ describe('before testing', () => {
                     firstname: 'Adaeze',
                     lastname: 'Eric',
                     username: 'deeEric',
-                    email: 'daizyodurukwe55676@gmail.com',
+                    email: 'daizyodurukwe007755@gmail.com',
                     password: 'puma',
                     phone: '08136770975',
                 })
@@ -67,6 +62,73 @@ describe('before testing', () => {
                         done();
                     });
             });
+
+            it('return error when type is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/red-flags')
+                    .set('x-access-token', token)
+                    .send({
+                        location: 'gwagwalada',
+                        // eslint-disable-next-line no-useless-escape
+                        images: '{\"img.png\"}',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when type wrong', (done) => {
+                chai.request(app)
+                    .post('/api/v1/red-flags')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'record',
+                        location: 'gwagwalada',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when location is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/red-flags')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'red flag',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when comment is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/red-flags')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'red flag',
+                        location: 'gwagwalada',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
         });
 
         // Test GET all endpoint
@@ -99,6 +161,16 @@ describe('before testing', () => {
                         done();
                     });
             });
+
+            it('should return error with an invalid id', (done) => {
+                chai.request(app)
+                    .get('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3')
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(404);
+                        done();
+                    });
+            });
         });
 
         // Test PATCH location of red flag endpoint
@@ -118,6 +190,20 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('data').to.be.an('object');
                         expect(res.body.data).to.have.property('id');
                         expect(res.body.data).to.have.property('location');
+                        done();
+                    });
+            });
+
+            it('should return error with invalid id', (done) => {
+                chai.request(app)
+                    .patch('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3/location')
+                    .set('x-access-token', token)
+                    .send({
+                        location: 'Lat: 500, Long: 70',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(404);
+                        expect(res.body).to.be.an('object');
                         done();
                     });
             });
@@ -143,6 +229,20 @@ describe('before testing', () => {
                         done();
                     });
             });
+
+            it('should return error with invalid id', (done) => {
+                chai.request(app)
+                    .patch('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3/comment')
+                    .set('x-access-token', token)
+                    .send({
+                        comment: 'another new comment',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(404);
+                        expect(res.body).to.be.an('object');
+                        done();
+                    });
+            });
         });
 
         // Test DELETE incident endpoint
@@ -158,6 +258,17 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('message').to.be.equal('red-flag record has been deleted');
                         expect(res.body).to.have.property('data').to.be.an('object');
                         expect(res.body.data).to.have.property('id');
+                        done();
+                    });
+            });
+
+            it('should return error with invalid id', (done) => {
+                chai.request(app)
+                    .delete('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3')
+                    .set('x-access-token', token)
+                    .then((res) => {
+                        expect(res).to.have.status(404);
+                        expect(res.body).to.be.an('object');
                         done();
                     });
             });
