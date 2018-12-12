@@ -38,7 +38,10 @@ describe('before testing', () => {
                 });
         });
 
-        // Test POST endpoint
+        /**
+         * Test POST endpoints
+         */
+        // Test POST red flag endpoint
         describe('POST API endpoint api/v1/red-flags', () => {
             it('POST a report', (done) => {
                 chai.request(app)
@@ -120,6 +123,99 @@ describe('before testing', () => {
                     .set('x-access-token', token)
                     .send({
                         type: 'red flag',
+                        location: 'gwagwalada',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+        });
+
+        // Test POST intervention endpoint
+        describe('POST API endpoint api/v1/intervention', () => {
+            it('POST a report', (done) => {
+                chai.request(app)
+                    .post('/api/v1/intervention')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'intervention',
+                        location: 'gwagwalada',
+                        // eslint-disable-next-line no-useless-escape
+                        images: '{\"img.png\"}',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(201);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('array');
+                        expect(res.body.data[0]).to.have.property('id');
+                        expect(res.body.data[0]).to.have.property('message').to.be.equal('Created intervention record');
+                        redflagId = res.body.data[0].id;
+                        done();
+                    });
+            });
+
+            it('return error when type is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/intervention')
+                    .set('x-access-token', token)
+                    .send({
+                        location: 'gwagwalada',
+                        // eslint-disable-next-line no-useless-escape
+                        images: '{\"img.png\"}',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when type wrong', (done) => {
+                chai.request(app)
+                    .post('/api/v1/intervention')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'record',
+                        location: 'gwagwalada',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when location is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/intervention')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'intervention',
+                        comment: 'plenty comments',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('return error when comment is not provided', (done) => {
+                chai.request(app)
+                    .post('/api/v1/intervention')
+                    .set('x-access-token', token)
+                    .send({
+                        type: 'intervention',
                         location: 'gwagwalada',
                     })
                     .end((err, res) => {
