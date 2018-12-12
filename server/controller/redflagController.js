@@ -174,20 +174,21 @@ class Records {
      * @param {*} res
      * @returns {object}
      */
-    static async deleteRedflag(req, res) {
+    static async deleteRecord(req, res) {
+        const returnmessage = req.message;
         try {
-            const deleteRedflag = await Model.delete(req.userId, req.params.id);
+            const deleteRedflag = await Model.delete(req.userId, req.params.id, returnmessage);
 
             if (!deleteRedflag) {
                 return res.status(404).send({
                     status: 404,
-                    message: 'Red-flag not found',
+                    message: `${returnmessage} not found`,
                 });
             }
 
             return res.status(200).send({
                 status: 200,
-                message: 'red-flag record has been deleted',
+                message: `${returnmessage} record has been deleted`,
                 data: deleteRedflag,
             });
         } catch (error) {

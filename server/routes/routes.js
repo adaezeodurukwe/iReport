@@ -55,7 +55,8 @@ router.patch(
 router.delete(
     '/red-flags/:id',
     Auth,
-    Records.deleteRedflag,
+    Message.redflag,
+    Records.deleteRecord,
 );
 
 // Intervention routes
@@ -67,7 +68,6 @@ router.post(
     Message.intervention,
     Records.createRecord,
 );
-
 
 router.get(
     '/interventions',
@@ -98,6 +98,13 @@ router.patch(
     Auth,
     Message.intervention,
     Records.updateRecordComment,
+);
+
+router.delete(
+    '/interventions/:id',
+    Auth,
+    Message.intervention,
+    Records.deleteRecord,
 );
 
 // User routes
