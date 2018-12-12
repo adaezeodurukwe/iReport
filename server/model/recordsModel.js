@@ -76,9 +76,9 @@ class Model {
      * @param {*} location
      * @returns {object}
      */
-    static async updateLocation(recordId, location) {
-        const sql = 'UPDATE records SET location = $1 WHERE id = $2 RETURNING id, location';
-        const values = [location, recordId];
+    static async updateLocation(recordId, location, type) {
+        const sql = 'UPDATE records SET location = $1 WHERE id = $2 AND type = $3 RETURNING id, location';
+        const values = [location, recordId, type];
 
         const { rows } = await pool.query(sql, values);
         return rows[0];

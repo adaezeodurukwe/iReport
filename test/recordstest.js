@@ -319,6 +319,9 @@ describe('before testing', () => {
             });
         });
 
+        /**
+         * Test PATCH location endpoints
+         */
         // Test PATCH location of red flag endpoint
         describe('PATCH API endpoint /red-flags/<red-flag-id>/location', () => {
             it('should update location of red flag', (done) => {
@@ -332,7 +335,7 @@ describe('before testing', () => {
                         expect(res).to.have.status(200);
                         expect(res.body).to.be.an('object');
                         expect(res.body).to.have.property('status').to.be.a('number');
-                        expect(res.body).to.have.property('message').to.be.equal('Updated red-flag record\'s location');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated red flag record\'s location');
                         expect(res.body).to.have.property('data').to.be.an('object');
                         expect(res.body.data).to.have.property('id');
                         expect(res.body.data).to.have.property('location');
@@ -350,6 +353,28 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(404);
                         expect(res.body).to.be.an('object');
+                        done();
+                    });
+            });
+        });
+
+        // Test PATCH location of red flag endpoint
+        describe('PATCH API endpoint /interventions/<interventions-id>/location', () => {
+            it('should update location of intervention', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/interventions/${interventionId}/location`)
+                    .set('x-access-token', token)
+                    .send({
+                        location: 'Lat: 500, Long: 70',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated intervention record\'s location');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        expect(res.body.data).to.have.property('id');
+                        expect(res.body.data).to.have.property('location');
                         done();
                     });
             });

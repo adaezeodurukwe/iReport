@@ -39,7 +39,8 @@ router.patch(
     Validate.updateLocation,
     Validate.validationHandler,
     Auth,
-    Records.updateRedflagLocation,
+    Message.redflag,
+    Records.updateRecordLocation,
 );
 
 router.patch(
@@ -78,6 +79,15 @@ router.get(
     Auth,
     Message.intervention,
     Records.getOneRecord,
+);
+
+router.patch(
+    '/interventions/:id/location',
+    Validate.updateLocation,
+    Validate.validationHandler,
+    Auth,
+    Message.intervention,
+    Records.updateRecordLocation,
 );
 
 // User routes

@@ -106,20 +106,25 @@ class Records {
      * @param {*} res
      * @returns {object}
      */
-    static async updateRedflagLocation(req, res) {
+    static async updateRecordLocation(req, res) {
+        const returnmessage = req.message;
         try {
-            const updatedLocation = await Model.updateLocation(req.params.id, req.body.location);
+            const updatedLocation = await Model.updateLocation(
+                req.params.id,
+                req.body.location,
+                returnmessage,
+            );
 
             if (!updatedLocation) {
                 return res.status(404).send({
                     status: 404,
-                    message: 'Red-flag not found',
+                    message: `${returnmessage} not found`,
                 });
             }
 
             return res.status(200).send({
                 status: 200,
-                message: 'Updated red-flag record\'s location',
+                message: `Updated ${returnmessage} record's location`,
                 data: updatedLocation,
             });
         } catch (error) {
