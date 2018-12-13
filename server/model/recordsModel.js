@@ -20,7 +20,7 @@ class Model {
         const sql = 'INSERT INTO records(id, createdOn, createdBy, type, location, status, images, videos, comment) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
         const values = [
             uuidv4(),
-            moment().format('DD/MM/YYYY'),
+            moment().format(),
             createdBy,
             type,
             location,
@@ -93,6 +93,20 @@ class Model {
     static async updateComment(recordId, comment, type) {
         const sql = 'UPDATE records SET comment = $1 WHERE id = $2 AND type = $3 RETURNING id, comment';
         const values = [comment, recordId, type];
+
+        const { rows } = await pool.query(sql, values);
+        return rows[0];
+    }
+
+    /**
+     * @async updateStatus
+     * @param {*} recordId
+     * @param {*} status
+     * @param {*} type
+     */
+    static async updateStatus(recordId, status, type) {
+        const sql = 'UPDATE records SET status = $1 WHERE id = $2 AND type = $3 RETURNING id, status';
+        const values = [status, recordId, type];
 
         const { rows } = await pool.query(sql, values);
         return rows[0];

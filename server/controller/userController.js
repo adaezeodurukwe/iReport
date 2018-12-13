@@ -25,8 +25,9 @@ class User {
                 req.body.email,
                 password,
                 req.body.phone,
+                req.body.isadmin || false,
             );
-            const userToken = Helper.generateToken(newUser.id);
+            const userToken = Helper.generateToken(newUser.id, newUser.isadmin);
             return res.status(201).send({
                 status: 201,
                 data: [{
@@ -62,7 +63,7 @@ class User {
             if (!match) {
                 return res.status(400).send({ message: 'incorrect crdentials' });
             }
-            const userToken = Helper.generateToken(user.id);
+            const userToken = Helper.generateToken(user.id, user.isadmin);
             return res.status(200).send({
                 status: 200,
                 data: [{

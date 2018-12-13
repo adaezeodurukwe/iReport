@@ -168,6 +168,34 @@ class Records {
         }
     }
 
+    static async updateRecordStatus(req, res) {
+        const returnmessage = req.message;
+        try {
+            const updatedStatus = await Model.updateStatus(
+                req.params.id,
+                req.body.status,
+                returnmessage,
+            );
+
+            if (!updatedStatus) {
+                return res.status(404).send({
+                    status: 404,
+                    message: `${returnmessage} not found`,
+                });
+            }
+
+            return res.status(200).send({
+                status: 200,
+                message: `Updated ${returnmessage} record's status`,
+                data: updatedStatus,
+            });
+        } catch (error) {
+            return res.status(500).send({
+                message: error,
+            });
+        }
+    }
+
     /**
      * @async deleteRedflag
      * @param {*} req
