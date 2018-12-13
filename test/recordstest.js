@@ -467,7 +467,7 @@ describe('before testing', () => {
          * Test PATCH status endpoints
          */
         // Test update redflag status endpoint
-        describe('PATCH API endpoint /red-flag/<red-flag-id>/status', () => {
+        describe('PATCH API endpoint /red-flags/<red-flag-id>/status', () => {
             it('should update status on a red flag', (done) => {
                 chai.request(app)
                     .patch(`/api/v1/red-flag/${redflagId}/status/`)
@@ -489,7 +489,7 @@ describe('before testing', () => {
 
             it('should return error for incorrect status type', (done) => {
                 chai.request(app)
-                    .patch(`/api/v1/red-flag/${redflagId}/status/`)
+                    .patch(`/api/v1/red-flags/${redflagId}/status/`)
                     .set('x-access-token', admintoken)
                     .send({
                         status: 'resolve',
@@ -504,7 +504,7 @@ describe('before testing', () => {
 
             it('should return forbidden', (done) => {
                 chai.request(app)
-                    .patch(`/api/v1/red-flag/${redflagId}/status/`)
+                    .patch(`/api/v1/red-flags/${redflagId}/status/`)
                     .set('x-access-token', token)
                     .send({
                         status: 'resolved',
@@ -544,7 +544,7 @@ describe('before testing', () => {
                     .patch(`/api/v1/interventions/${interventionId}/status/`)
                     .set('x-access-token', admintoken)
                     .send({
-                        status: 'under',
+                        status: 'unders',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(422);
