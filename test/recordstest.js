@@ -9,8 +9,8 @@ import * as schema from '../server/db/dbschema';
 chai.use(chaiHttp);
 
 let token;
+let admintoken;
 let redflagId;
-// eslint-disable-next-line no-unused-vars
 let interventionId;
 
 describe('before testing', () => {
@@ -36,6 +36,28 @@ describe('before testing', () => {
                     expect(res.body.data[0]).to.have.property('token');
                     // eslint-disable-next-line prefer-destructuring
                     token = res.body.data[0].token;
+                    done();
+                });
+        });
+
+        it('sign up user and return token', (done) => {
+            chai.request(app)
+                .post('/api/v1/auth/signup')
+                .send({
+                    firstname: 'Adaeze',
+                    lastname: 'Eric',
+                    username: 'deeEric',
+                    email: 'daizyodurukwe@gmail.com',
+                    password: 'puma',
+                    phone: '08136770975',
+                    isadmin: true,
+                })
+                .end((err, res) => {
+                    expect(res).to.have.status(201);
+                    expect(res.body).to.be.a('object');
+                    expect(res.body.data[0]).to.have.property('token');
+                    // eslint-disable-next-line prefer-destructuring
+                    admintoken = res.body.data[0].token;
                     done();
                 });
         });
@@ -436,6 +458,53 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('message').to.be.equal('Updated intervention record\'s comment');
                         expect(res.body.data).to.have.property('id');
                         expect(res.body.data).to.have.property('comment');
+                        done();
+                    });
+            });
+        });
+
+        /**
+         * Test PATCH status endpoints
+         */
+        // Test update redflag status endpoint
+        describe('PATCH API endpoint /red-flag/<red-flag-id>/status', () => {
+            it('should update status on a red flag', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/red-flag/${redflagId}/status/`)
+                    .set('x-access-token', admintoken)
+                    .send({
+                        status: 'new status',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated red flag record\'s status');
+                        expect(res.body.data).to.have.property('id');
+                        expect(res.body.data).to.have.property('status');
+                        done();
+                    });
+            });
+        });
+
+        // Test update intervention status
+        describe('PATCH API endpoint /interventions/<interventions-id>/status', () => {
+            it('should update status on an intervention', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/interventions/${interventionId}/status/`)
+                    .set('x-access-token', admintoken)
+                    .send({
+                        status: 'new status',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('object');
+                        expect(res.body).to.have.property('message').to.be.equal('Updated intervention record\'s status');
+                        expect(res.body.data).to.have.property('id');
+                        expect(res.body.data).to.have.property('status');
                         done();
                     });
             });
