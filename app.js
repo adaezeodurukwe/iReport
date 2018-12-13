@@ -7,14 +7,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import router from './server/routes/routes';
-import { createUserTable, createRecordsTable } from './server/db/dbschema';
+import * as schema from './server/db/dbschema';
 
 // Create instance of express
 const app = express();
 
 // Create tables
-createUserTable();
-createRecordsTable();
+schema.createUserTable();
+schema.createRecordsTable();
 
 // Set middleware
 app.use(bodyParser.json());
