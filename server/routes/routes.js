@@ -103,6 +103,7 @@ router.get(
 
 router.patch(
     '/interventions/:id/location',
+    Validate.parameter,
     Validate.updateLocation,
     Validate.validationHandler,
     Auth,
@@ -112,6 +113,7 @@ router.patch(
 
 router.patch(
     '/interventions/:id/comment',
+    Validate.parameter,
     Validate.updateComment,
     Validate.validationHandler,
     Auth,
@@ -121,6 +123,7 @@ router.patch(
 
 router.patch(
     '/interventions/:id/status',
+    Validate.parameter,
     Validate.updateStatus,
     Validate.validationHandler,
     Auth,
@@ -131,6 +134,8 @@ router.patch(
 
 router.delete(
     '/interventions/:id',
+    Validate.parameter,
+    Validate.validationHandler,
     Auth,
     Message.intervention,
     Records.deleteRecord,

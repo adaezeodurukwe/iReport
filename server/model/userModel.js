@@ -23,7 +23,7 @@ class Model {
     static async create(
         firstname, lastname, username, othernames, email, password, phone, isAdmin,
     ) {
-        const sql = 'INSERT INTO users(id, firstname, lastname, username, othernames, email, password, phone, registered, isAdmin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
+        const sql = 'INSERT INTO users(id, firstname, lastname, username, othernames, email, password, phone, registered, isAdmin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id, firstname, lastname, username';
         const values = [
             uuidv4(),
             firstname,
