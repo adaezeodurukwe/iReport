@@ -473,7 +473,7 @@ describe('before testing', () => {
                     .patch(`/api/v1/red-flag/${redflagId}/status/`)
                     .set('x-access-token', admintoken)
                     .send({
-                        status: 'new status',
+                        status: 'resolved',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(200);
@@ -486,16 +486,46 @@ describe('before testing', () => {
                         done();
                     });
             });
+
+            it('should return error for incorrect status type', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/red-flag/${redflagId}/status/`)
+                    .set('x-access-token', admintoken)
+                    .send({
+                        status: 'resolve',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('should return forbidden', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/red-flag/${redflagId}/status/`)
+                    .set('x-access-token', token)
+                    .send({
+                        status: 'resolved',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(403);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('message').to.be.equals('forbidden');
+                        done();
+                    });
+            });
         });
 
-        // Test update intervention status
+        // Test update intervention status endpoint
         describe('PATCH API endpoint /interventions/<interventions-id>/status', () => {
             it('should update status on an intervention', (done) => {
                 chai.request(app)
                     .patch(`/api/v1/interventions/${interventionId}/status/`)
                     .set('x-access-token', admintoken)
                     .send({
-                        status: 'new status',
+                        status: 'under investigation',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(200);
@@ -505,6 +535,36 @@ describe('before testing', () => {
                         expect(res.body).to.have.property('message').to.be.equal('Updated intervention record\'s status');
                         expect(res.body.data).to.have.property('id');
                         expect(res.body.data).to.have.property('status');
+                        done();
+                    });
+            });
+
+            it('should return error for incorrect status type', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/interventions/${interventionId}/status/`)
+                    .set('x-access-token', admintoken)
+                    .send({
+                        status: 'under',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(422);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        done();
+                    });
+            });
+
+            it('should return forbidden', (done) => {
+                chai.request(app)
+                    .patch(`/api/v1/red-flag/${interventionId}/status/`)
+                    .set('x-access-token', token)
+                    .send({
+                        status: 'resolved',
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(403);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('message').to.be.equals('forbidden');
                         done();
                     });
             });
