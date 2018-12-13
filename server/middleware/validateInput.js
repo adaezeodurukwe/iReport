@@ -57,6 +57,10 @@ const updateComment = [
     body('comment', 'Comment is required').exists().isLength({ min: 10 }),
 ];
 
+// Validate update status input
+const updateStatus = [
+    body('status', 'Invalid status').isIn(['under investigation', 'resolved', 'rejected']),
+];
 
 // Handle validation errors
 const validationHandler = (req, res, next) => {
@@ -76,6 +80,7 @@ export {
     interventionInput,
     updateLocation,
     updateComment,
+    updateStatus,
     parameter,
     validationHandler,
 };

@@ -21,7 +21,7 @@ class Model {
      * @returns {object}
      */
     static async create(
-        firstname, lastname, username, othernames, email, password, phone, isAdmin = false,
+        firstname, lastname, username, othernames, email, password, phone, isAdmin,
     ) {
         const sql = 'INSERT INTO users(id, firstname, lastname, username, othernames, email, password, phone, registered, isAdmin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
         const values = [
@@ -33,7 +33,7 @@ class Model {
             email,
             password,
             phone,
-            moment().format('DD/MM/YYYY'),
+            moment().format(),
             isAdmin,
         ];
         const { rows } = await pool.query(sql, values);

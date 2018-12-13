@@ -11,6 +11,7 @@ const Auth = async (req, res, next) => {
     const unsigned = await Helper.verifyToken(token);
 
     req.userId = unsigned.userId;
+    req.isAdmin = unsigned.isAdmin;
     return next();
 };
 
