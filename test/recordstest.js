@@ -443,7 +443,7 @@ describe('before testing', () => {
 
         // Test PATCH intervention comment endpoint
         describe('PATCH API endpoint /interventions/<interventions-id>/comment', () => {
-            it('should update comment on a intervention', (done) => {
+            it('should update comment on an intervention', (done) => {
                 chai.request(app)
                     .patch(`/api/v1/interventions/${interventionId}/comment/`)
                     .set('x-access-token', token)

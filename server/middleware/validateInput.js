@@ -44,7 +44,7 @@ const interventionInput = [
 
 // Validate param
 const parameter = [
-    param('id', 'Invalid id').isUUID({ Version: 4 }),
+    param('id', 'Invalid id').isUUID([4]),
 ];
 
 // Validate update location input

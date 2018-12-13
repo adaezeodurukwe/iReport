@@ -57,6 +57,12 @@ class Records {
         }
     }
 
+    /**
+     * @static
+     * @param {*} req
+     * @param {*} res
+     * @returns {object}
+     */
     static async getAllInterventions(req, res) {
         try {
             const allRecords = await Model.getByType(req.userId, 'intervention');
@@ -108,19 +114,24 @@ class Records {
      */
     static async updateRecordLocation(req, res) {
         const returnmessage = req.message;
+        const id = req.userId;
+        const recordId = req.params.id;
+        const newLocation = req.body.location;
         try {
-            const updatedLocation = await Model.updateLocation(
-                req.params.id,
-                req.body.location,
-                returnmessage,
-            );
+            const getRecord = await Model.getOne(id, recordId, returnmessage);
 
-            if (!updatedLocation) {
+            if (!getRecord) {
                 return res.status(404).send({
                     status: 404,
                     message: `${returnmessage} not found`,
                 });
             }
+
+            const updatedLocation = await Model.updateLocation(
+                recordId,
+                newLocation,
+                returnmessage,
+            );
 
             return res.status(200).send({
                 status: 200,
@@ -142,10 +153,22 @@ class Records {
      */
     static async updateRecordComment(req, res) {
         const returnmessage = req.message;
+        const id = req.userId;
+        const recordId = req.params.id;
+        const newComment = req.body.comment;
         try {
+            const getRecord = await Model.getOne(id, recordId, returnmessage);
+
+            if (!getRecord) {
+                return res.status(404).send({
+                    status: 404,
+                    message: `${returnmessage} not found`,
+                });
+            }
+
             const updatedComment = await Model.updateComment(
-                req.params.id,
-                req.body.comment,
+                recordId,
+                newComment,
                 returnmessage,
             );
 
@@ -168,6 +191,12 @@ class Records {
         }
     }
 
+    /**
+     * @async updateRecordStatus
+     * @param {*} req
+     * @param {*} res
+     * @returns {object}
+     */
     static async updateRecordStatus(req, res) {
         const returnmessage = req.message;
         try {
@@ -204,8 +233,19 @@ class Records {
      */
     static async deleteRecord(req, res) {
         const returnmessage = req.message;
+        const id = req.userId;
+        const recordId = req.params.id;
         try {
-            const deleteRedflag = await Model.delete(req.userId, req.params.id, returnmessage);
+            const getRecord = await Model.getOne(id, recordId, returnmessage);
+
+            if (!getRecord) {
+                return res.status(404).send({
+                    status: 404,
+                    message: `${returnmessage} not found`,
+                });
+            }
+
+            const deleteRedflag = await Model.delete(id, recordId, returnmessage);
 
             if (!deleteRedflag) {
                 return res.status(404).send({
