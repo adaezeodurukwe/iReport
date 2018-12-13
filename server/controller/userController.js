@@ -17,6 +17,14 @@ class User {
     static async createUser(req, res) {
         const password = Helper.encryptedPassword(req.body.password);
         try {
+            const user = await Model.getOne(req.body.email);
+            if (user) {
+                return res.status(409).send({
+                    status: 409,
+                    message: 'user already exists',
+                });
+            }
+
             const newUser = await Model.create(
                 req.body.firstname,
                 req.body.lastname,
