@@ -29,14 +29,16 @@ router.get(
 
 router.get(
     '/red-flags/:id',
-    Auth,
     Validate.parameter,
+    Validate.validationHandler,
+    Auth,
     Message.redflag,
     Records.getOneRecord,
 );
 
 router.patch(
     '/red-flags/:id/location',
+    Validate.parameter,
     Validate.updateLocation,
     Validate.validationHandler,
     Auth,
@@ -46,6 +48,7 @@ router.patch(
 
 router.patch(
     '/red-flags/:id/comment',
+    Validate.parameter,
     Validate.updateComment,
     Validate.validationHandler,
     Auth,
@@ -55,6 +58,7 @@ router.patch(
 
 router.patch(
     '/red-flags/:id/status',
+    Validate.parameter,
     Validate.updateStatus,
     Validate.validationHandler,
     Auth,
@@ -65,6 +69,8 @@ router.patch(
 
 router.delete(
     '/red-flags/:id',
+    Validate.parameter,
+    Validate.validationHandler,
     Auth,
     Message.redflag,
     Records.deleteRecord,
@@ -88,6 +94,8 @@ router.get(
 
 router.get(
     '/interventions/:id',
+    Validate.parameter,
+    Validate.updateLocation,
     Auth,
     Message.intervention,
     Records.getOneRecord,
