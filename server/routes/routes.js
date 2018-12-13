@@ -111,6 +111,16 @@ router.patch(
     Records.updateRecordComment,
 );
 
+router.patch(
+    '/interventions/:id/status',
+    Validate.updateStatus,
+    Validate.validationHandler,
+    Auth,
+    isAdmin,
+    Message.intervention,
+    Records.updateRecordStatus,
+);
+
 router.delete(
     '/interventions/:id',
     Auth,
