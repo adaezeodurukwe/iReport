@@ -77,7 +77,12 @@ class User {
                 data: [{
                     token: userToken,
                     // eslint-disable-next-line object-shorthand
-                    user: user,
+                    user: {
+                        id: user.id,
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                        username: user.username,
+                    },
                 }],
             });
         } catch (error) {
