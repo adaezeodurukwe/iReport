@@ -35,9 +35,8 @@ nav{
 }
 
 .mobile-nav p{
-	padding: 5%;	
-/*	text-align: center;
-*/	font-size: 25px;
+	padding: 2%;	
+	font-size: 25px;
 }
 
 .mobile-nav a{
@@ -437,11 +436,21 @@ main{
 
 	min-height: 300px;
 	width: 80%;
-	margin: 1% auto;
+	margin: 3% auto;
 	padding: 1%;
 	background: #ffffff;
+	box-shadow: 0px 0px 10px #999;
 }
 
+.flag-body{
+	display: grid;
+	grid-template-columns: 100%;
+}
+
+.flag-head{
+	margin: 3% auto;
+	text-align: center;
+}
 
 .status{
 	padding-top: 1%;
@@ -476,20 +485,26 @@ main{
 	font-size: 1.5em
 }
 
+.cards-body b{
+	font-size: 18px;
+}
+
 .profile h3{
 	text-align: center;
 	border-bottom: solid 1px #ccc;
+	padding-bottom: 3%;
+	margin-top: 7%;
 	margin-bottom: 5%;
 }
 
 .min-nav{
 	display: block;
-	margin-bottom: 15%;
+	margin-bottom: 7%;
 }
 
 .min-nav img{
 	height: 18px;
-	padding: 0 1px;
+	padding: 5px;
 }
 
 .min-nav ul li{
@@ -502,35 +517,33 @@ main{
 	text-decoration: none;
 	color: #333;
 }
-.max-cards span {
-	display: block;
-	margin-bottom: 2%;
+
+.pmax-cards{
+	background: #ffffff;
+	margin: 2%; 
+	padding: 2%;
+	border-bottom: solid 1px #888888;
 }
 
-.max-cards span label{
+.pmax-cards span {
 	display: block;
 	margin-bottom: 1%;
 }
 
-
-.max-cards span select{
-	height: 30px;
-}
-
-.max-cards span button{
+.pmax-cards span button{
 	width: 80px;
 	color: #ffffff;
-	margin: 0 0 2% 0;
+	margin: 2% 0 2% 0;
 	padding: 1%;
 	background: #02B875;
 	border-color: #02B875;
 }
 
-.max-cards span button:hover{
+.pmax-cards span button:hover{
 	box-shadow: 0px 2px 2px #888888;
 }
 
-.max-cards span img{
+.pmax-cards span img{
 	width: 200px;
 	height: 150px;
 	margin: 2% 2% 0 0;
@@ -544,8 +557,8 @@ main{
 	background: #02B875;
 	color: #ffffff;
 	border-color: #02B875;
-	padding: 1%;
 	width: 80px;
+	height: 35px;
 }
 .view:hover{
 	background: #01a76a;
@@ -555,12 +568,22 @@ main{
 .delete{
 	background: #ffffff;
 	border-color: #F08080;
+	margin: 2% 0 2% 0;
 	color: #B22222;
-	padding: 1%;
 	width: 80px;
+	height: 35px;
 }
 
-.delete:hover{
+.edit{
+	background: #ffffff;
+	border-color: #2471A3;
+	margin: 2% 0 2% 0;
+	color: #2471A3;
+	width: 80px;
+	height: 35px;
+}
+
+.delete:hover, .edit:hover{
 	box-shadow: 0px 2px 2px #888888;
 }
 
@@ -631,20 +654,22 @@ main{
 
 .pagenation{
 	padding-top: 2%;
-	width: 10%;
+	width: 20%;
 	margin: auto
 }
 
 .pagenation button{
 	background: #F0FFFF;
 	border-color: #F0F8FF;
-	width: 40px;
+	width: 50px;
+	height: 25px;
 }
 
 .pagenation button:hover{
 	background: #F0F8FF;
 	box-shadow: 0px 1px 1px #888888;
 }
+
 
 /*FAQ page*/
 .faq{
@@ -714,7 +739,7 @@ main{
 		position: absolute;
 	}
 
-	[class*="ntext"]{
+	[class*="min-nav"]{
 		display: none;
 	}
 
