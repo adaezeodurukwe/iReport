@@ -40,7 +40,12 @@ class User {
                 status: 201,
                 data: [{
                     token: userToken,
-                    user: newUser,
+                    user: {
+                        id: newUser.id,
+                        firstname: newUser.firstname,
+                        lastname: newUser.lastname,
+                        username: newUser.username,
+                    },
                 }],
             });
         } catch (error) {
@@ -77,7 +82,12 @@ class User {
                 data: [{
                     token: userToken,
                     // eslint-disable-next-line object-shorthand
-                    user: user,
+                    user: {
+                        id: user.id,
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                        username: user.username,
+                    },
                 }],
             });
         } catch (error) {

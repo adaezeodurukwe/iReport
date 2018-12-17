@@ -73,7 +73,7 @@ describe('before testing', () => {
                     .set('x-access-token', token)
                     .send({
                         type: 'red flag',
-                        location: 'gwagwalada',
+                        location: '4.3000, 7.9000',
                         // eslint-disable-next-line no-useless-escape
                         images: '{\"img.png\"}',
                         comment: 'plenty comments',
@@ -103,7 +103,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -120,7 +121,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -136,7 +138,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -152,7 +155,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -166,7 +170,7 @@ describe('before testing', () => {
                     .set('x-access-token', token)
                     .send({
                         type: 'intervention',
-                        location: 'gwagwalada',
+                        location: '4.0009, 3.0008',
                         // eslint-disable-next-line no-useless-escape
                         images: '{\"img.png\"}',
                         comment: 'plenty comments',
@@ -196,7 +200,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -213,7 +218,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -229,7 +235,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -245,7 +252,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -351,7 +359,7 @@ describe('before testing', () => {
                     .patch(`/api/v1/red-flags/${redflagId}/location`)
                     .set('x-access-token', token)
                     .send({
-                        location: 'Lat: 500, Long: 70',
+                        location: '5.00, 7.02',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(200);
@@ -370,7 +378,7 @@ describe('before testing', () => {
                     .patch('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3/location')
                     .set('x-access-token', token)
                     .send({
-                        location: 'Lat: 500, Long: 70',
+                        location: '5.00, 7.022',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(404);
@@ -387,7 +395,7 @@ describe('before testing', () => {
                     .patch(`/api/v1/interventions/${interventionId}/location`)
                     .set('x-access-token', token)
                     .send({
-                        location: 'Lat: 500, Long: 70',
+                        location: '5.00, 70.000',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(200);
@@ -497,7 +505,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -549,7 +558,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
