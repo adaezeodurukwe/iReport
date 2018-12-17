@@ -40,7 +40,12 @@ class User {
                 status: 201,
                 data: [{
                     token: userToken,
-                    user: newUser,
+                    user: {
+                        id: newUser.id,
+                        firstname: newUser.firstname,
+                        lastname: newUser.lastname,
+                        username: newUser.username,
+                    },
                 }],
             });
         } catch (error) {
