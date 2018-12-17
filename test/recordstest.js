@@ -73,7 +73,7 @@ describe('before testing', () => {
                     .set('x-access-token', token)
                     .send({
                         type: 'red flag',
-                        location: 'gwagwalada',
+                        location: '4.3000, 7.9000',
                         // eslint-disable-next-line no-useless-escape
                         images: '{\"img.png\"}',
                         comment: 'plenty comments',
@@ -103,7 +103,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -120,7 +121,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -136,7 +138,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -152,7 +155,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -166,7 +170,7 @@ describe('before testing', () => {
                     .set('x-access-token', token)
                     .send({
                         type: 'intervention',
-                        location: 'gwagwalada',
+                        location: '4.0009, 3.0008',
                         // eslint-disable-next-line no-useless-escape
                         images: '{\"img.png\"}',
                         comment: 'plenty comments',
@@ -196,7 +200,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -213,7 +218,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -229,7 +235,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
@@ -245,7 +252,8 @@ describe('before testing', () => {
                     .end((err, res) => {
                         expect(res).to.have.status(422);
                         expect(res.body).to.be.an('object');
-                        expect(res.body).to.have.property('errors').to.be.an('array');
+                        expect(res.body).to.have.property('status');
+                        expect(res.body).to.have.property('message');
                         done();
                     });
             });
