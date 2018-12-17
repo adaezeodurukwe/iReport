@@ -78,7 +78,7 @@ router.delete(
 
 // Intervention routes
 router.post(
-    '/intervention',
+    '/interventions',
     Validate.interventionInput,
     Validate.validationHandler,
     Auth,

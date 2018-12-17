@@ -166,7 +166,7 @@ describe('before testing', () => {
         describe('POST API endpoint api/v1/intervention', () => {
             it('POST an intervention report', (done) => {
                 chai.request(app)
-                    .post('/api/v1/intervention')
+                    .post('/api/v1/interventions')
                     .set('x-access-token', token)
                     .send({
                         type: 'intervention',
@@ -189,7 +189,7 @@ describe('before testing', () => {
 
             it('return error when type is not provided', (done) => {
                 chai.request(app)
-                    .post('/api/v1/intervention')
+                    .post('/api/v1/interventions')
                     .set('x-access-token', token)
                     .send({
                         location: 'gwagwalada',
@@ -208,7 +208,7 @@ describe('before testing', () => {
 
             it('return error when type wrong', (done) => {
                 chai.request(app)
-                    .post('/api/v1/intervention')
+                    .post('/api/v1/interventions')
                     .set('x-access-token', token)
                     .send({
                         type: 'record',
@@ -226,7 +226,7 @@ describe('before testing', () => {
 
             it('return error when location is not provided', (done) => {
                 chai.request(app)
-                    .post('/api/v1/intervention')
+                    .post('/api/v1/interventions')
                     .set('x-access-token', token)
                     .send({
                         type: 'intervention',
@@ -243,7 +243,7 @@ describe('before testing', () => {
 
             it('return error when comment is not provided', (done) => {
                 chai.request(app)
-                    .post('/api/v1/intervention')
+                    .post('/api/v1/interventions')
                     .set('x-access-token', token)
                     .send({
                         type: 'intervention',
