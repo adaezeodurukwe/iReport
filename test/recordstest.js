@@ -378,7 +378,7 @@ describe('before testing', () => {
                     .patch('/api/v1/red-flags/3818ea1f-bb6c-43bf-9503-d48957c8a6d3/location')
                     .set('x-access-token', token)
                     .send({
-                        location: '5.00, 7022',
+                        location: '5.00, 7.022',
                     })
                     .end((err, res) => {
                         expect(res).to.have.status(404);
