@@ -40,7 +40,7 @@ describe('before testing', () => {
                 });
         });
 
-        it('sign up user and return token', (done) => {
+        it('sign up admin and return token', (done) => {
             chai.request(app)
                 .post('/api/v1/auth/signup')
                 .send({
@@ -50,7 +50,7 @@ describe('before testing', () => {
                     email: 'daizyodurukwe@gmail.com',
                     password: 'puma',
                     phone: '08136770975',
-                    isadmin: true,
+                    isadmin: 'admin',
                 })
                 .end((err, res) => {
                     expect(res).to.have.status(201);

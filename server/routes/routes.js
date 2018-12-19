@@ -6,7 +6,6 @@ import Records from '../controller/recordsController';
 import Auth from '../middleware/auth';
 import * as Validate from '../middleware/validateInput';
 import * as Message from '../middleware/message';
-import isAdmin from '../middleware/adminAuth';
 
 const router = express.Router();
 
@@ -62,7 +61,6 @@ router.patch(
     Validate.updateStatus,
     Validate.validationHandler,
     Auth,
-    isAdmin,
     Message.redflag,
     Records.updateRecordStatus,
 );
@@ -127,7 +125,6 @@ router.patch(
     Validate.updateStatus,
     Validate.validationHandler,
     Auth,
-    isAdmin,
     Message.intervention,
     Records.updateRecordStatus,
 );

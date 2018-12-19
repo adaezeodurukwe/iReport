@@ -13,3 +13,4 @@ before_script:
 
 env:
   - SECRET=love
+  - ADMIN_KEY=admin

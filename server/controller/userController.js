@@ -25,6 +25,8 @@ class User {
                 });
             }
 
+            const isAdmin = req.body.isadmin === process.env.ADMIN_KEY;
+
             const newUser = await Model.create(
                 req.body.firstname,
                 req.body.lastname,
@@ -33,7 +35,7 @@ class User {
                 req.body.email,
                 password,
                 req.body.phone,
-                req.body.isadmin || false,
+                isAdmin,
             );
             const userToken = Helper.generateToken(newUser.id, newUser.isadmin);
             return res.status(201).send({
@@ -68,7 +70,7 @@ class User {
             if (!user) {
                 return res.status(404).send({
                     status: 404,
-                    message: 'user not found',
+                    message: 'incorrect credentials',
                 });
             }
 
