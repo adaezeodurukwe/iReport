@@ -26,7 +26,7 @@ const signUp = [
 
     body('password', 'password should contain at least four characters').exists().isLength({ min: 4 }),
 
-    body('isadmin', 'enter valid admin parameter').optional().isIn([true, false]),
+    // body('isadmin', 'enter valid admin parameter').optional().isIn([true, false]),
 
 
 ];

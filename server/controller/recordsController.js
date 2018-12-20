@@ -199,7 +199,15 @@ class Records {
      */
     static async updateRecordStatus(req, res) {
         const returnmessage = req.message;
+        const adminStatus = req.isAdmin;
         try {
+            if (!adminStatus || adminStatus === false) {
+                return res.status(403).send({
+                    status: 403,
+                    message: 'forbidden',
+                });
+            }
+
             const updatedStatus = await Model.updateStatus(
                 req.params.id,
                 req.body.status,
