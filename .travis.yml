@@ -12,5 +12,4 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 
 env:
-  - SECRET=love
-  - ADMIN_KEY=admin
+  - SECRET=love ADMIN_KEY=admin
