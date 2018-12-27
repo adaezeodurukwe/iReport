@@ -42,7 +42,7 @@ class Records {
             const allRecords = await Model.getAll();
             return res.status(200).send({
                 status: 200,
-                Records: allRecords,
+                data: allRecords,
             });
         } catch (error) {
             return res.status(500).send({
