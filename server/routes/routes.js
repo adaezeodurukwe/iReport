@@ -9,6 +9,11 @@ import * as Message from '../middleware/message';
 
 const router = express.Router();
 
+// Get all records
+router.get(
+    '/records/',
+    Records.getAllRecords,
+);
 
 // Red flag routes
 router.post(

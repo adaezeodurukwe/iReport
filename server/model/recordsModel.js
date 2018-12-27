@@ -39,11 +39,10 @@ class Model {
      * @param {*} userId
      * @returns {object}
      */
-    static async getAll(userId) {
-        const sql = 'SELECT * FROM records WHERE createdBy = $1';
-        const values = [userId];
+    static async getAll() {
+        const sql = 'SELECT * FROM records';
 
-        const { rows } = await pool.query(sql, values);
+        const { rows } = await pool.query(sql);
         return rows;
     }
 
