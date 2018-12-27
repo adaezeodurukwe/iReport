@@ -36,7 +36,6 @@ class Model {
 
     /**
      * @async getAll
-     * @param {*} userId
      * @returns {object}
      */
     static async getAll() {
