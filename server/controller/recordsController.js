@@ -37,6 +37,12 @@ class Records {
         }
     }
 
+    /**
+     * @async getAllRecords
+     * @param {*} req
+     * @param {*} res
+     * @returns {object}
+     */
     static async getAllRecords(req, res) {
         try {
             const allRecords = await Model.getAll();
