@@ -67,7 +67,7 @@ describe('before testing', () => {
             it('Should get all red flags and interventions', (done) => {
                 chai.request(app)
                     .get('/api/v1/records')
-                    .end((res) => {
+                    .then((res) => {
                         expect(res).to.have.status(200);
                         expect(res.body).to.be.an('object');
                         expect(res.body).to.have.property('status').to.be.a('number');
