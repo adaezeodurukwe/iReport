@@ -38,6 +38,26 @@ class Records {
     }
 
     /**
+     * @async getAllRecords
+     * @param {*} req
+     * @param {*} res
+     * @returns {object}
+     */
+    static async getAllRecords(req, res) {
+        try {
+            const allRecords = await Model.getAll();
+            return res.status(200).send({
+                status: 200,
+                data: allRecords,
+            });
+        } catch (error) {
+            return res.status(500).send({
+                message: error,
+            });
+        }
+    }
+
+    /**
      * @async getAllRedflags
      * @param {*} req
      * @param {*} res

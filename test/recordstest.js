@@ -62,6 +62,21 @@ describe('before testing', () => {
                 });
         });
 
+        // Test get all records endpoint
+        describe('GET API endpoint api/v1/records', () => {
+            it('Should get all red flags and interventions', (done) => {
+                chai.request(app)
+                    .get('/api/v1/records')
+                    .then((res) => {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.be.an('object');
+                        expect(res.body).to.have.property('status').to.be.a('number');
+                        expect(res.body).to.have.property('data').to.be.an('array');
+                        done();
+                    });
+            });
+        });
+
         /**
          * Test POST endpoints
          */
