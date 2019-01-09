@@ -158,4 +158,10 @@ router.post(
     User.login,
 );
 
+// Throw error for all unavailable routes
+router.all('*', (req, res) => res.status(404).send({
+    status: 404,
+    message: 'Route not found',
+}));
+
 export default router;
