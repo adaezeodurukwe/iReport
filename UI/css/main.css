@@ -135,7 +135,8 @@ nav ul li a.active{
 .content{
 	width: 80%;
 	display: grid;
-	grid-template-columns: 33.4% 33.3% 33.3%;
+/*	grid-template-columns: 33.4% 33.3% 33.3%;
+*/	grid-template-columns: 33.4% 50%;
 	margin: auto;
 	padding: 5% 0;
 }
