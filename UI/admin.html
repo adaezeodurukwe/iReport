@@ -18,11 +18,11 @@
 				<a href="index.html"><h2>iReporter</h2></a>
 				<div class="links">
 					<ul>				
-						<li><a href="records.html">Records |</a></li>
-						<li><a href="profile.html">Profile |</a></li>
-						<li><a href="faq.html">Faq |</a></li>
-						<li><a href="signup.html">Sign Up |</a></li>
 						<li><a href="signin.html">Login</a></li>
+						<li><a href="signup.html">Sign Up</a></li>
+						<li><a href="faq.html">Faq</a></li>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="records.html">Records</a></li>
 					</ul>
 				</div>					
 			</div>				
@@ -32,21 +32,22 @@
 			<p><a href="records.html">Records </a></p>
 			<p><a href="profile.html">Profile</a></p>
 			<p><a href="faq.html">Faq </a></p>
-			<p><a href="signup.html">Sign Up</a></p>
-			<p><a href="signin.html">Login</a></p>
+			<p><a href="create.html">Add Record</a></p>
+			<p><a href="#">Logout</a></p>
 		</div>
 		
 		<div class="profile">
-			<h2>Admin</h2>
+			<h2>ADMIN</h2>
 			<main>		
 				<div class="min-nav">
 					<ul>
-						<li><a href=""><img src="img/logout.png">Logout</a></li>
-						<li><a href="create.html"><img src="img/add1.png">Add</a></li>
-						<li><a href="profile.html"><img src="img/full.png">My Records</a></li>
+						<li><a href=""><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
+						<li><a href="create.html"><img src="img/add1.png"><span class="ntext">Add</span></a></li>
+						<li><a href="profile.html"><img src="img/apps.png"><span class="ntext">My Records</span></a></li>
 					</ul>
 				</div>
-				<h3>Admin</h3>
+				<h3>ALL RECORDS</h3>
+
 				<div class="status">
 					<div class="status-cards">
 						<p>3</p><p>Draft</p>
@@ -61,48 +62,91 @@
 						<p>0</p><p>Rejected</p>
 					</div>
 				</div>
-					
-				<div class="red-flags">
-					<div class="max-cards">
+				<div class="main">
+					<div class="cards">
 						<div class="cards-body">
-							<span><b>Intervention</b><br><b>Status: </b> Draft</span>
-							<span><b>Location: </b> 4.55098, 50.9000</span>
-							<span><b>Comment: </b> Some comment</span>
-							<span><b>Images: </b><br> <img src="img/road.jpg"><img src="img/road1.jpg"></span>
+							<p><b>Intervention</b><br><b>Status: </b> Draft</p>
+							<p><b>Location: </b> Nicon town, Lekki phase II, Lagos, Nigeria</p>
+							<p><b>Comment: </b> Some comment</p>
 						</div>
-						<span>
-							<form>
-								<label for="change"><b>Change Status</b></label>
-								<select name="change">
-									<option value="redflag">Under Investigation</option>
-									<option value="redflag">Resolve</option>
-									<option value="intervention">Reject</option>
-								</select>
-								<button>Update</button>
-							</form>
-						</span>
+	
+						<div class="cards-footer">
+							<button onclick="location.href='adminDetails.html';" class="view">View</button>
+						</div>		
+					</div>
+					<div class="cards">
+						<div class="cards-body">
+							<p><b>Red flag</b><br><b>Status: </b> Draft</p>
+							<p><b>Location: </b> Nicon town, Lekki phase II, Lagos Nigeria</p>
+							<p><b>Comment: </b> Some comment</p>
+						</div>
+						
 						
 						<div class="cards-footer">
-							<button class="view">View</button>
+							<button onclick="location.href='adminDetails.html';" class="view">View</button>
+						</div>		
+					</div>
+					<div class="cards">
+						<div class="cards-body">
+							<p><b>Red flag</b><br><b>Status: </b> Draft</p>
+							<p><b>Location: </b> Nicon town, Lekki phase II, Lagos Nigeria</p>
+							<p><b>Comment: </b> Some comment</p>
+						</div>
+						
+						
+						<div class="cards-footer">
+							<button onclick="location.href='adminDetails.html';" class="view">View</button>
+						</div>		
+					</div>
+					<div class="cards">
+						<div class="cards-body">
+							<p><b>Intervention</b><br><b>Status: </b> Draft</p>
+							<p><b>Location: </b> Nicon town, Lekki phase II, Lagos Nigeria</p>
+							<p><b>Comment: </b> Some comment</p>
+						</div>
+						
+						<div class="cards-footer">
+							<button onclick="location.href='adminDetails.html';" class="view">View</button>
 						</div>		
 					</div>
 				</div>
-				
+				<hr/>
+				<div class="pagenation">
+					<button>Prev</button><button>Next</button>
+				</div>
 			</main>
 
 		</div>
 		
 	</div>
 	<footer>
-		<b>Quick links</b>
-			<ul>
-				<li>Add Record</li>
-				<li>Records</li>
-				<li>Profile</li>
-				<li>Faq</li>
-			</ul>
+		<div class="foot-body">
+			<div class="foot-note">
+				<b>QUICK LINKS</b>
+				<ul>
+					<li>Add Record </li>
+					<li>All Records</li>
+					<li>Profile</li>
+					<li>Faq</li>
+				</ul>
+			</div>
+			<div class="foot-note">
+				<b>SUBSCRIBE</b>
+				<p>Enter email for the latest news</p>
+				<form>
+					<input type="text">
+					<button>Subscribe</button>
+				</form>
+			</div>
+			<div class="foot-note">
+				<b>CONTACT US</b>
+				<p><img src="img/phone.png">+2340136770975</p>
+				<p><img src="img/mail.png">daizyodurukwe@gmail.com</p>
+			</div>
 		</div>
+		
 		<h4>&copy Adaeze Odurukwe</h4>
 	</footer>
+</body>
 </body>
 </html>

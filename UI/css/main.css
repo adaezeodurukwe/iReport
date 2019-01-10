@@ -9,9 +9,16 @@ body{
 }
 
 nav{
-	padding: 0.5%;
+	padding: 1%;
 	min-height: 30px;
 	border-bottom: solid 1px #ccc;
+	box-shadow: 1px 0px 1px #999;
+	background: #ffffff
+}
+
+.inner{
+	width: 90%;
+	margin: auto;
 }
 
 .mobile{
@@ -20,14 +27,16 @@ nav{
 
 .mobile-nav{
 	display: none;
+	padding-top: 5%;
+	height: 90%;
 	width: 100%;
 	background: #d5edf3;
 	z-index: 1;
 }
 
 .mobile-nav p{
-	padding: 1%;	
-	text-align: center;
+	padding: 2%;	
+	font-size: 25px;
 }
 
 .mobile-nav a{
@@ -46,16 +55,25 @@ nav h2{
 
 nav ul{
 	float: right;
+	width: 50%;
 }
 
 nav ul li{
+	float: right;
 	list-style: none;
 	display: inline-block;
+	padding-left: 5%;
 }
 
 nav ul li a{
 	text-decoration: none;
 	color: #02309B;
+	padding-bottom: 5px;
+}
+
+nav ul li a.active{
+	border-bottom: solid 1px #888888;
+	box-shadow: 0px 2px #ccc;
 }
 
 .header{
@@ -63,11 +81,6 @@ nav ul li a{
 	margin: auto;
 	min-height: 500px;
 }
-
-img.menu{
-	visibility: hidden;
-}
-
 
 .header-img{
 	float: right;	
@@ -99,6 +112,7 @@ img.menu{
 
 .header-button button{
 	background: #02B875;
+	border-color: #02B875;
 	width: 30%;
 	padding: 1%;
 	font-size: 1.2em;
@@ -160,24 +174,57 @@ img.menu{
 
 footer{
 	background: #343a40;
-	text-align: center;
-	color: white;
-	padding: 2%;
+	color: #ECF0F1;
+	padding: 2% 0;
 	bottom: 0px;
     width: 100%;
 }
 
-footer ul{
-	padding: 1%;
+.foot-body{
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 35% 35% 30%;
+}
+
+.foot-note{
+	padding: 10% 5%;
+}
+
+footer p{
+	padding-top: 5px;
+}
+
+footer b{
+	color: #ccc;
 }
 
 footer ul li{
 	list-style: none;
+	padding-top: 5px;
+}
+footer input{
+	margin-top: 5px;
+	padding: 1%;
 }
 
-footer h4{ 
-	padding-top: 1%;
-	color: #ccc;
+footer button{
+	display: block;
+	margin-top: 5px;
+	background: #02B875;
+	border-color: #02B875;
+	padding: 1%;
+	color: #ECF0F1;
+
+}
+
+footer h4{
+	padding-top: 20px;
+	text-align: center;
+}
+
+footer img{
+	padding-right: 5px;
 }
 
 /*signup page*/
@@ -223,9 +270,8 @@ footer h4{
 
 .form-container input{
 	display: block;
-	box-shadow: -1px 0px 1px #888888;
 	border: 1px solid #ccc;
-	border-radius: 3px;
+	border-radius: 5px;
 	margin-top: 1%;
 	padding: 2%;
 	width: 96%;
@@ -261,6 +307,7 @@ footer h4{
 	padding: 1% 0;
 	text-align: center;
 	background: #d5edf3;
+	text-shadow: 1px 1px #ffffff;
 }
 
 .records-body{
@@ -279,6 +326,7 @@ footer h4{
 
 .filter select{
 	width: 96%;
+	height: 30px;
 	margin-right: 4%; 
 }
 
@@ -290,13 +338,14 @@ footer h4{
 
 .records-body .cards:first-child{
 	background: transparent;
+	box-shadow: none;
 }
 
 .cards:first-child img{
 	display: block;
 	margin: auto;
 	width: 50%;
-	padding: 20px;
+	padding-top: 30%;
 }
 
 .cards{
@@ -313,6 +362,11 @@ footer h4{
 	text-transform: capitalize;
 }
 
+.cards h4 img{
+	height: 20px;
+	padding-right: 5px;
+}
+
 .cards p{
 	padding: 5% 0;
 }
@@ -320,6 +374,7 @@ footer h4{
 .cards i{
 	color: #2471A3;
 }
+
 
 .cards button{
 	width: 40%;
@@ -343,7 +398,7 @@ footer h4{
 	height: 400px;
 	background: #ffffff;
 	padding: 0 2%;
-	box-shadow: 1px 1px #888888;
+	box-shadow: 1px 1px 1px #888888;
 	margin-bottom: 10%
 }
 
@@ -355,20 +410,51 @@ footer h4{
 	text-align: center;
 }
 
+.images h3, .updateStatus h3{
+	padding: 1%;
+}
+
+.updateStatus{
+	padding: 0 1%;
+}
+
+.updateStatus button{
+	background: #02B875;
+	color: #ffffff;
+	border-color: #02B875;
+	padding: 1%;
+	width: 80px;
+}
+
+.updateStatus select{
+	height: 30px;
+}
+
 /*profile page*/
 
 main{
 
 	min-height: 300px;
 	width: 80%;
-	margin: 1% auto;
+	margin: 3% auto;
 	padding: 1%;
 	background: #ffffff;
+	box-shadow: 0px 0px 10px #999;
 }
 
+.flag-body{
+	display: grid;
+	grid-template-columns: 100%;
+}
+
+.flag-head{
+	margin: 3% auto;
+	text-align: center;
+}
 
 .status{
-	padding-top: 5%;
+	padding-top: 1%;
+	margin: 5% 0;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
 }
@@ -399,19 +485,26 @@ main{
 	font-size: 1.5em
 }
 
+.cards-body b{
+	font-size: 18px;
+}
+
 .profile h3{
 	text-align: center;
-	color: #02309B;
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 3%;
+	margin-top: 7%;
+	margin-bottom: 5%;
 }
 
 .min-nav{
 	display: block;
-	padding-bottom: 15%
+	margin-bottom: 7%;
 }
 
 .min-nav img{
-	height: 15px;
-	padding: 0 0;
+	height: 18px;
+	padding: 5px;
 }
 
 .min-nav ul li{
@@ -424,24 +517,33 @@ main{
 	text-decoration: none;
 	color: #333;
 }
-.max-cards span {
-	display: block;
-	margin-bottom: 2%;
-}
-.max-cards span button{
-	width: auto;
-	display: block;
-	margin: 0 0 2% 0;
-	padding: 1%;
-	background: #FFFACD;
-	border-color: #FFFACD;
+
+.pmax-cards{
+	background: #ffffff;
+	margin: 2%; 
+	padding: 2%;
+	border-bottom: solid 1px #888888;
 }
 
-.max-cards span button:hover{
+.pmax-cards span {
+	display: block;
+	margin-bottom: 1%;
+}
+
+.pmax-cards span button{
+	width: 80px;
+	color: #ffffff;
+	margin: 2% 0 2% 0;
+	padding: 1%;
+	background: #02B875;
+	border-color: #02B875;
+}
+
+.pmax-cards span button:hover{
 	box-shadow: 0px 2px 2px #888888;
 }
 
-.max-cards span img{
+.pmax-cards span img{
 	width: 200px;
 	height: 150px;
 	margin: 2% 2% 0 0;
@@ -455,8 +557,8 @@ main{
 	background: #02B875;
 	color: #ffffff;
 	border-color: #02B875;
-	padding: 1%;
 	width: 80px;
+	height: 35px;
 }
 .view:hover{
 	background: #01a76a;
@@ -466,12 +568,22 @@ main{
 .delete{
 	background: #ffffff;
 	border-color: #F08080;
+	margin: 2% 0 2% 0;
 	color: #B22222;
-	padding: 1%;
 	width: 80px;
+	height: 35px;
 }
 
-.delete:hover{
+.edit{
+	background: #ffffff;
+	border-color: #2471A3;
+	margin: 2% 0 2% 0;
+	color: #2471A3;
+	width: 80px;
+	height: 35px;
+}
+
+.delete:hover, .edit:hover{
 	box-shadow: 0px 2px 2px #888888;
 }
 
@@ -491,12 +603,13 @@ main{
 	width: 90%;
 	display: block;
 	margin-bottom: 2%;
-	border-radius: 3%;
+	border-radius: 3px;
 	padding: 1%;
 }
 
 .create form select{
 	width: 92%;
+	height: 40px;
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
@@ -504,6 +617,7 @@ main{
 
 .create form label{
 	display: block;
+	padding: 1% 0;
 }
 
 .create textarea{
@@ -515,14 +629,19 @@ main{
 
 .create button{
 	display: block;
-	text-align: center;
+	width: 80px;
 	background: #02B875;
+	border-color: #02B875;
 	color: #ffffff;
     font-size: 15px;
-    margin: auto;
     padding: 1%;
+    margin-top: 5%;
 }
 
+.create button:hover{
+	background: #01a76a;
+	box-shadow: 0px 2px 2px #888888;
+}
 
 .cards-max{
 	margin: 2%;
@@ -533,6 +652,25 @@ main{
 	width: 60%;
 }
 
+.pagenation{
+	padding-top: 2%;
+	width: 20%;
+	margin: auto
+}
+
+.pagenation button{
+	background: #F0FFFF;
+	border-color: #F0F8FF;
+	width: 50px;
+	height: 25px;
+}
+
+.pagenation button:hover{
+	background: #F0F8FF;
+	box-shadow: 0px 1px 1px #888888;
+}
+
+
 /*FAQ page*/
 .faq{
 	width: 80%;
@@ -541,8 +679,7 @@ main{
 }
 
 .max-cards{
-/*	border: solid 1px #999;
-*/	background: #ffffff;
+	background: #ffffff;
 	margin: 2%; 
 	padding: 2%;
 	box-shadow: 1px 1px 1px #888888;
@@ -593,7 +730,6 @@ main{
 	}
 
 	[class*="item"]{
-/*		border-bottom: solid 1px #ccc;*/
 		margin: 1%;
 		padding-bottom: 1%;
 	}
@@ -601,6 +737,10 @@ main{
 	[class*="mobile-nav"]{
 		display: none;
 		position: absolute;
+	}
+
+	[class*="min-nav"]{
+		display: none;
 	}
 
 	[class*="form-container"]{
@@ -620,32 +760,29 @@ main{
 		grid-template-columns: 100%;
 	}
 
-	[class*="status"]{
-		grid-template-columns: 50% 50%;
+	[class*="foot-body"]{
+		grid-template-columns: 100%;
 	}
-	
-}
-@media only screen and (max-width: 300px) {
+
 	[class*="status"]{
 		grid-template-columns: 100%;
 	}
-	[class*="min-nav"]{
-		padding-bottom: 30%;
-	}
-}
 
+	[class*="updateStatus"]{
+		margin-top: 5%;
+	}
+	
+}
 
 
 /*
 *lightbox style
 *gallery modal style from https://www.w3schools.com/howto/howto_js_lightbox.asp
 */
-.images h3{
-	padding: 1%;
-}
+
 
 .row > .column {
-  padding: 0 8px;
+  padding: 5px 8px;
 }
 
 .row:after {
