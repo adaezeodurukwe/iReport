@@ -1,6 +1,10 @@
 {
     "env": {
+        "browser": true,
         "mocha": true
+    },
+    "globals": {
+        "document": false
     },
     "extends": "airbnb",
     "rules": {

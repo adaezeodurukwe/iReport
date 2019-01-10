@@ -72,8 +72,8 @@ nav ul li a{
 }
 
 nav ul li a.active{
-	border-bottom: solid 1px #888888;
-	box-shadow: 0px 2px #ccc;
+	border-bottom: solid 1px #02B875;
+	box-shadow: 0px 1px #ccc;
 }
 
 .header{
@@ -132,10 +132,11 @@ nav ul li a.active{
 	min-height: 100px;
 }
 
-.row h1{
+.row h1,
+.form-container h1{
 	text-align: center;
 	font-style: italic;
-	padding-top: 40px;
+	padding-top: 30px;
 	color: #333;
 }
 
@@ -236,38 +237,13 @@ footer img{
 
 /*signup page*/
 .form-container{
-	width: 40%;
+	width: 70%;
 	margin: auto;
 	margin-top: 5%;
 	margin-bottom: 5%; 
 	padding: 2%;
 	background: #ffffff;
-	border: solid 1px #DCDCDC;
-	box-shadow: 1px 1px 1px #888888;
-}
-
-.form-heading{
-	text-align: center;
-}
-
-.form-heading ul{
-	padding-bottom: 2%;
-}
-
-.form-heading ul li{
-	list-style: none;
-	display: inline;
-	padding: 10% 2%;
-}
-
-.form-heading ul li a{
-	text-decoration: none;
-	color: black;
-	padding-bottom: 1%;
-}
-
-.form-heading ul li a.active{
-	border-bottom: solid 3px #F08080;
+	box-shadow: 0px 0px 1px #888888;
 }
 
 .form-container label{
@@ -275,11 +251,21 @@ footer img{
 	margin-top: 5%;
 }
 
+.form-body{
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.form-field{
+	padding: 1%;
+}
 .form-container input{
 	display: block;
 	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-top: 1%;
+	border-width: 0 0 1px 0;
+/*	border-radius: 5px;
+*/	margin-top: 1%;
 	padding: 2%;
 	width: 96%;
 }
@@ -754,6 +740,9 @@ main{
 		margin-top: 10%;
 		width: 80%;
 	}
+	[class*="form-body"]{
+		grid-template-columns: 100%;
+	}
 
 	[class*="main"]{
 		grid-template-columns: 100%;
@@ -779,6 +768,52 @@ main{
 		margin-top: 5%;
 	}
 	
+}
+
+/* 
+** Toast solution from https://www.w3schools.com/howto/howto_js_snackbar.asp
+*/
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
 
 
