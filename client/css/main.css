@@ -260,12 +260,18 @@ footer img{
 .form-field{
 	padding: 1%;
 }
+
+.form-container p{
+	color: red;
+	text-align: center;
+	margin-top: 20px;
+}
+
 .form-container input{
 	display: block;
 	border: 1px solid #ccc;
 	border-width: 0 0 1px 0;
-/*	border-radius: 5px;
-*/	margin-top: 1%;
+	margin-top: 1%;
 	padding: 2%;
 	width: 96%;
 }
@@ -280,10 +286,10 @@ footer img{
 	text-align: center;
 	background: #02B875;
 	color: #ffffff;
-    width: 50%;
+    width: 40%;
     font-size: 15px;
     height: 40px;
-    margin: 5% auto;
+    margin: 10% auto;
     border-color: #02B875;
     border-radius: 3px;
 }
