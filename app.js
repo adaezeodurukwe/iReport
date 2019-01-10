@@ -5,6 +5,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import path from 'path';
 import router from './server/routes/routes';
 import { createUserTable, createRecordsTable } from './server/db/dbschema';
@@ -16,8 +17,11 @@ const app = express();
 createUserTable();
 createRecordsTable();
 
-// Set middleware
+// Set bodyparser middleware
 app.use(bodyParser.json());
+
+// set cors
+app.use(cors());
 
 // Set port
 const port = parseInt(process.env.PORT, 10) || 3000;
