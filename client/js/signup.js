@@ -40,7 +40,7 @@ function validate(values) {
 
     if (!values.email.match(mailformat)) {
         document.getElementById('error').innerHTML = 'Enter valid Email';
-        document.getElementById('password').focus();
+        document.getElementById('email').focus();
 
         return false;
     }
