@@ -433,21 +433,15 @@ footer img{
 
 main{
 
-	min-height: 300px;
+	min-height: 600px;
 	width: 80%;
 	margin: 3% auto;
 	padding: 1%;
-	background: #ffffff;
+	background: #FBFCFC;
 	box-shadow: 0px 0px 10px #999;
 }
 
-.flag-body{
-	display: grid;
-	grid-template-columns: 100%;
-}
-
-.flag-head{
-	margin: 3% auto;
+#none{
 	text-align: center;
 }
 
@@ -484,8 +478,9 @@ main{
 	font-size: 1.5em
 }
 
-.cards-body b{
+.cards-body b, .flag h4{
 	font-size: 18px;
+	text-transform: capitalize;
 }
 
 .profile h3{
@@ -521,7 +516,8 @@ main{
 	background: #ffffff;
 	margin: 2%; 
 	padding: 2%;
-	border-bottom: solid 1px #888888;
+	box-shadow: 0px 0px 2px #888888;
+	border-radius: 5px;
 }
 
 .pmax-cards span {
@@ -532,7 +528,6 @@ main{
 .pmax-cards span button{
 	width: 80px;
 	color: #ffffff;
-	margin: 2% 0 2% 0;
 	padding: 1%;
 	background: #02B875;
 	border-color: #02B875;
@@ -542,14 +537,24 @@ main{
 	box-shadow: 0px 2px 2px #888888;
 }
 
-.pmax-cards span img{
+
+.cards-body{
+	display: grid;
+	grid-template-columns: 40% 60%;
+}
+
+.flag{
+	padding: 2%;
+}
+
+.flag img{
 	width: 200px;
 	height: 150px;
 	margin: 2% 2% 0 0;
 }
 
 .cards-footer{
-	margin-top: 5%
+	margin-top: 2%
 }
 
 .view{
@@ -585,6 +590,7 @@ main{
 .delete:hover, .edit:hover{
 	box-shadow: 0px 2px 2px #888888;
 }
+
 
 /*Create record page*/
 .create{
@@ -725,6 +731,10 @@ main{
 	}
 
 	[class*="content"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="cards-body"]{
 		grid-template-columns: 100%;
 	}
 
