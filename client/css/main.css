@@ -261,7 +261,7 @@ footer img{
 	padding: 1%;
 }
 
-.form-container p{
+.form-container p, .create p{
 	color: red;
 	text-align: center;
 	margin-top: 20px;
@@ -606,9 +606,9 @@ main{
 
 .create form input{
 	width: 90%;
+	height: 25px;
 	display: block;
 	margin-bottom: 2%;
-	border-radius: 3px;
 	padding: 1%;
 }
 
@@ -634,13 +634,13 @@ main{
 
 .create button{
 	display: block;
-	width: 80px;
+	width: 100px;
 	background: #02B875;
 	border-color: #02B875;
 	color: #ffffff;
     font-size: 15px;
     padding: 1%;
-    margin-top: 5%;
+    margin: 5% auto;
 }
 
 .create button:hover{

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Create</title>
+    <script type="text/javascript" src="js/utility.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+<body>
+	<div class="container">			
+		<nav>
+			<div class="inner">
+				<div class="mobile">
+					<a href="javascript:void(0);" onclick="mobileNav()"><img src="img/menu1.png"></a>
+				</div>
+				<a href="index.html"><h2>iReporter</h2></a>
+				<div class="links">
+					<ul>				
+						<li><a href="signin.html">Login</a></li>
+						<li><a href="signup.html">Sign Up</a></li>
+						<li><a href="faq.html">Faq</a></li>
+						<li><a class="active" href="profile.html">Profile</a></li>
+						<li><a href="records.html">Records</a></li>
+					</ul>
+				</div>					
+			</div>				
+		</nav>
+
+		<div class="mobile-nav">	
+			<p><a href="records.html">Records </a></p>
+			<p><a href="profile.html">Profile</a></p>
+			<p><a href="faq.html">Faq </a></p>			
+			<p><a href="create.html">Add Record</a></p>
+			<p><a href="#">Logout</a></p>
+		</div>
+		
+		<div class="profile">
+			<h2>PROFILE</h2>
+			<main>
+				
+				<div class="min-nav">
+					<ul>
+						<li><a href=""><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
+						<li><a href="create.html"><img src="img/add1.png"><span class="ntext">Add</span></a></li>
+						<li><a href="profile.html"><img src="img/apps.png"><span class="ntext">My Records</span></a></li>
+					</ul>
+				</div>
+				<h3>ADD RECORD</h3>
+				<div class="create">
+					<form id="createRecord" method="POST">	                
+		                <label for="type"><b>Type</b></label>
+						<select name="type" id="type">
+							<option value="choose">Choose Type</option>
+							<option value="redflag">Red Flag</option>
+							<option value="intervention">Intervention</option>
+						</select> 
+
+						<label for="location"><b>Location </b></label>
+		                <input type="text" name="location" id="location">
+
+		                <label for="comment"><b>Comment</b></label>
+		                <textarea name="comment" id="comment"></textarea>
+						
+						<p id="error"></p>
+
+						<label for="file"><strong>Add Images</strong></label>
+		                <input type="file" name="file">
+
+		                <div class="button">
+		                    <button>Submit</button>    
+		                </div>
+		            </form>
+				</div>
+	            
+			</main>
+
+		</div>
+		
+	</div>
+	<div id="snackbar"><p id="errormsg"></p></div>
+	<footer>
+		<div class="foot-body">
+			<div class="foot-note">
+				<b>QUICK LINKS</b>
+				<ul>
+					<li>Add Record </li>
+					<li>All Records</li>
+					<li>Profile</li>
+					<li>Faq</li>
+				</ul>
+			</div>
+			<div class="foot-note">
+				<b>SUBSCRIBE</b>
+				<p>Enter email for the latest news</p>
+				<form>
+					<input type="text">
+					<button>Subscribe</button>
+				</form>
+			</div>
+			<div class="foot-note">
+				<b>CONTACT US</b>
+				<p><img src="img/phone.png">+2340136770975</p>
+				<p><img src="img/mail.png">daizyodurukwe@gmail.com</p>
+			</div>
+		</div>
+		
+		<h4>&copy Adaeze Odurukwe</h4>
+		<script type="text/javascript" src="js/create.js"></script>
+	</footer>
+</body>
+</body>
+</html>
