@@ -610,6 +610,7 @@ main{
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
+	text-transform: capitalize;
 }
 
 .create form select{
@@ -618,6 +619,7 @@ main{
 	display: block;
 	margin-bottom: 2%;
 	padding: 1%;
+	text-transform: capitalize;
 }
 
 .create form label{

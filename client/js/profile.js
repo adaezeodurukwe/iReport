@@ -41,6 +41,7 @@ function loadRecords() {
                 let rejected = 0;
                 records.forEach((record) => {
                     const recordStatus = record.status;
+                    const recordType = record.type.replace(/ /g, '');
                     if (recordStatus === 'draft') draft += 1;
                     else if (recordStatus === 'under investigation') investigation += 1;
                     else if (recordStatus === 'resolved') resolved += 1;
@@ -59,8 +60,8 @@ function loadRecords() {
                             </div>
                         </div>
                         <div class="cards-footer">
-                            <button onclick="location.href='details.html';" class="view">View</button>
-                            <button onclick="location.href='create.html';" class="edit">Update</button>
+                            <button onclick="location.href='details.html?id=${record.id}';" class="view">View</button>
+                            <button onclick="location.href='update.html?type=${recordType}&id=${record.id}';" class="edit">Update</button>
                             <button class="delete">Delete</button>
                         </div>
                     </div>
