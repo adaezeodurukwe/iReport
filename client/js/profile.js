@@ -9,20 +9,21 @@ const statusDraft = document.getElementById('draft');
 const statusInvestigtion = document.getElementById('investigation');
 const statusResolved = document.getElementById('resolved');
 const statusRejected = document.getElementById('rejected');
+const id = new URLSearchParams(window.location.search).get('id');
+const rType = new URLSearchParams(window.location.search).get('type');
+const url = rType === 'redflag' ? redflagsUrl : interventionsUrl;
 
-const fetchData = {
-    method: 'GET',
-    headers: {
-        Accept: 'application/json, text/plain, */*',
-        'content-type': 'application/json',
-        'x-access-token': token,
-        credentials: 'cors',
-    },
+
+const headers = {
+    Accept: 'application/json, text/plain, */*',
+    'content-type': 'application/json',
+    'x-access-token': token,
+    credentials: 'cors',
 };
 
 function loadRecords() {
-    const fetchinterventions = fetch(interventionsUrl, fetchData);
-    const fetchredflags = fetch(redflagsUrl, fetchData);
+    const fetchinterventions = fetch(interventionsUrl, { method: 'GET', headers });
+    const fetchredflags = fetch(redflagsUrl, { method: 'GET', headers });
 
     Promise.all([fetchinterventions, fetchredflags])
         .then(res => Promise.all(res.map(response => response.json())))
@@ -62,7 +63,7 @@ function loadRecords() {
                         <div class="cards-footer">
                             <button onclick="location.href='details.html?id=${record.id}';" class="view">View</button>
                             <button onclick="location.href='update.html?type=${recordType}&id=${record.id}';" class="edit">Update</button>
-                            <button class="delete">Delete</button>
+                            <button class="delete" onclick="location.href='profile.html?type=${recordType}&id=${record.id}'" >Delete</button>
                         </div>
                     </div>
                     `;
@@ -77,4 +78,15 @@ function loadRecords() {
         .catch(error => error);
 }
 
-loadRecords();
+function deleteRecord() {
+    fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers,
+    })
+        .then(() => {
+            window.location.replace('profile.html');
+        });
+}
+
+if (rType && id) deleteRecord();
+else loadRecords();
