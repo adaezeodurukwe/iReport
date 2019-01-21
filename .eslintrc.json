@@ -4,7 +4,8 @@
         "mocha": true
     },
     "globals": {
-        "document": false
+        "document": false,
+        "google": false
     },
     "extends": "airbnb",
     "rules": {

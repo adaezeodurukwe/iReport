@@ -61,7 +61,7 @@ function loadRecords() {
                             </div>
                         </div>
                         <div class="cards-footer">
-                            <button onclick="location.href='details.html?id=${record.id}';" class="view">View</button>
+                            <button onclick="location.href='details.html?type=${recordType}&id=${record.id}';" class="view">View</button>
                             <button onclick="location.href='update.html?type=${recordType}&id=${record.id}';" class="edit">Update</button>
                             <button class="delete" onclick="location.href='profile.html?type=${recordType}&id=${record.id}'" >Delete</button>
                         </div>
