@@ -98,6 +98,28 @@ class User {
             });
         }
     }
+
+    static async getUser(req, res) {
+        try {
+            const id = req.userId;
+            const user = await Model.getById(id);
+
+            return res.status(200).send({
+                status: 200,
+                user: {
+                    id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    username: user.username,
+                    status: user.isadmin,
+                },
+            });
+        } catch (error) {
+            return res.status(500).send({
+                message: error,
+            });
+        }
+    }
 }
 
 export default User;

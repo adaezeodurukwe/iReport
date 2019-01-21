@@ -158,6 +158,8 @@ router.post(
     User.login,
 );
 
+router.get('/auth/user', Auth, User.getUser);
+
 // Throw error for all unavailable routes
 router.all('*', (req, res) => res.status(404).send({
     status: 404,
