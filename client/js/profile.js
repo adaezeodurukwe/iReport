@@ -49,7 +49,7 @@ function loadRecords() {
                     else rejected += 1;
                     output += `
                     <div class="pmax-cards">
-                        <div class="cards-body">
+                        <div class="card-body">
                             <div class="flag">
                                 <span><h4>${record.type}</h4></span>
                                 <span><b>Status: </b> ${record.status}</span>

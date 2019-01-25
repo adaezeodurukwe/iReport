@@ -329,10 +329,16 @@ footer img{
 	margin-right: 4%; 
 }
 
-.main, .profile-body{
+.main{
 	margin: 2% 0;
 	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-columns: 50% 50%;
+}
+
+.main .comment{
+	height: 100px;
+	overflow-y: auto;
+
 }
 
 .records-body .cards:first-child{
@@ -351,7 +357,7 @@ footer img{
 	background: #ffffff;
 	margin: 5%; 
 	padding: 5%;
-	box-shadow: 1px 1px 1px #888888;
+	box-shadow: 1px 1px 3px #888888;
 }
 
 .cards h4{
@@ -486,6 +492,9 @@ main{
 .cards-body b, .flag h4{
 	font-size: 18px;
 	text-transform: capitalize;
+	color: #333;
+	padding-right: 5px;
+	font-style: oblique 15deg;
 }
 
 .profile h3{
@@ -525,7 +534,7 @@ main{
 	border-radius: 5px;
 }
 
-.pmax-cards span {
+.pmax-cards span, .cards-body span {
 	display: block;
 	margin-bottom: 1%;
 }
@@ -543,7 +552,7 @@ main{
 }
 
 
-.cards-body{
+.card-body{
 	display: grid;
 	grid-template-columns: 40% 60%;
 }
@@ -745,6 +754,10 @@ main{
 		grid-template-columns: 100%;
 	}
 
+	[class*="card-body"]{
+		grid-template-columns: 100%;
+	}
+
 	[class*="item"]{
 		margin: 1%;
 		padding-bottom: 1%;
@@ -767,15 +780,11 @@ main{
 		grid-template-columns: 100%;
 	}
 
-	[class*="main"]{
-		grid-template-columns: 100%;
-	}
-
 	[class*="detail"]{
 		grid-template-columns: 100%;
 	}
 
-	[class*="profile-body"]{
+	[class*="main"]{
 		grid-template-columns: 100%;
 	}
 
@@ -837,6 +846,79 @@ main{
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+/*
+**	Modal style from https://www.w3schools.com/howto/howto_css_modals.asp
+*/
+
+
+/* The Modal (background) */
+.adminmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.adminmodal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 10px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+.adminmodal-content form{
+	margin: 2% auto
+}
+
+.input_field{
+	margin: 2% 0;
+}
+
+
+.input_field input{
+	display: block;
+	width: 96%;
+	padding: 5px;
+	margin: 10px 0
+}
+
+.adminmodal-content form input{
+	padding: 2%;
+}
+
+.adminmodal-content form button{
+	display: block;
+	margin: 5% auto;
+	height: 30px;
+	width: 100px;
+	background: #02B875;
+	border-color: #02B875;
+	color: #ffffff;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
