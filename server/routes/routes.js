@@ -70,6 +70,15 @@ router.patch(
     Records.updateRecordStatus,
 );
 
+router.patch(
+    '/red-flags/:id/addImage',
+    Validate.parameter,
+    Validate.validationHandler,
+    Auth,
+    Message.redflag,
+    Records.addImage,
+);
+
 router.delete(
     '/red-flags/:id',
     Validate.parameter,
@@ -133,6 +142,16 @@ router.patch(
     Message.intervention,
     Records.updateRecordStatus,
 );
+
+router.patch(
+    '/interventions/:id/addImage',
+    Validate.parameter,
+    Validate.validationHandler,
+    Auth,
+    Message.intervention,
+    Records.addImage,
+);
+
 
 router.delete(
     '/interventions/:id',
