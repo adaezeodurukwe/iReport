@@ -126,6 +126,38 @@ class Records {
         }
     }
 
+    static async addImage(req, res) {
+        const returnmessage = req.message;
+        const id = req.userId;
+        const recordId = req.params.id;
+        const newImage = req.body.image;
+        try {
+            const getRecord = await Model.getOne(id, recordId, returnmessage);
+
+            if (!getRecord) {
+                return res.status(404).send({
+                    status: 404,
+                    message: `${returnmessage} not found`,
+                });
+            }
+            const updatedRecord = await Model.updateImage(
+                recordId,
+                newImage,
+                returnmessage,
+            );
+
+            return res.status(200).send({
+                status: 200,
+                message: `Image added to ${returnmessage} record`,
+                data: updatedRecord,
+            });
+        } catch (error) {
+            return res.status(500).send({
+                message: error,
+            });
+        }
+    }
+
     /**
      * @async updateRedflagLocation
      * @param {*} req

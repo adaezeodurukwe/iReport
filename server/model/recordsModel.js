@@ -67,6 +67,21 @@ class Model {
         return rows[0];
     }
 
+    /**
+     * @async updateImage
+     * @param {*} recordId
+     * @param {*} image
+     * @param {*} type
+     * @returns {object}
+     */
+    static async updateImage(recordId, image) {
+        const sql = 'UPDATE records SET images = (images || $1) WHERE id = $2';
+        const values = [image, recordId];
+
+        const { rows } = await pool.query(sql, values);
+        return rows[0];
+    }
+
 
     /**
      * @async updateLocation
