@@ -9,7 +9,9 @@ const statusDraft = document.getElementById('draft');
 const statusInvestigtion = document.getElementById('investigation');
 const statusResolved = document.getElementById('resolved');
 const statusRejected = document.getElementById('rejected');
+const modal = document.getElementById('myModal');
 const id = new URLSearchParams(window.location.search).get('id');
+const action = new URLSearchParams(window.location.search).get('action');
 const rType = new URLSearchParams(window.location.search).get('type');
 const url = rType === 'redflag' ? redflagsUrl : interventionsUrl;
 
@@ -43,6 +45,7 @@ function loadRecords() {
                 records.forEach((record) => {
                     const recordStatus = record.status;
                     const recordType = record.type.replace(/ /g, '');
+
                     if (recordStatus === 'draft') draft += 1;
                     else if (recordStatus === 'under investigation') investigation += 1;
                     else if (recordStatus === 'resolved') resolved += 1;
@@ -56,14 +59,14 @@ function loadRecords() {
                                 <span><b>Location: </b>${record.location}</span>
                                 <span><b>Comment: </b> ${record.comment}</span>
                             </div>
-                            <div class="flag">
-                                <b>Images: </b><br> 'No image added, update record to add images'
+                            <div class="flag" id="images">
+                                <b>Images: </b><br><button class="edit" onclick="location.href='profile.html?action=addimg&type=${recordType}&id=${record.id}'">Addimage</button>
                             </div>
                         </div>
                         <div class="cards-footer">
                             <button onclick="location.href='details.html?type=${recordType}&id=${record.id}';" class="view">View</button>
                             <button onclick="location.href='update.html?type=${recordType}&id=${record.id}';" class="edit">Update</button>
-                            <button class="delete" onclick="location.href='profile.html?type=${recordType}&id=${record.id}'" >Delete</button>
+                            <button class="delete" onclick="location.href='profile.html?action=delete&type=${recordType}&id=${record.id}'" >Delete</button>
                         </div>
                     </div>
                     `;
@@ -77,6 +80,9 @@ function loadRecords() {
         })
         .catch(error => error);
 }
+function loadData() {
+    modal.style.display = 'block';
+}
 
 function deleteRecord() {
     fetch(`${url}/${id}`, {
@@ -88,5 +94,7 @@ function deleteRecord() {
         });
 }
 
-if (rType && id) deleteRecord();
-else loadRecords();
+if (action === 'delete') deleteRecord();
+else if (action === 'addimg') loadData();
+
+loadRecords();

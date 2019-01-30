@@ -11,6 +11,8 @@ const showMap = document.getElementById('map');
 const type = document.getElementById('type');
 const status = document.getElementById('status');
 const comment = document.getElementById('comment');
+const image1 = document.getElementById('img1');
+const image2 = document.getElementById('img2');
 
 
 function initMap(lattitude, longitude) {
@@ -40,12 +42,20 @@ function loadRecord() {
                 const coordinates = response.data.location.split(',');
                 const lattitude = parseFloat(coordinates[0]);
                 const longitude = parseFloat(coordinates[1]);
+                const noImage = 'No image';
 
                 initMap(lattitude, longitude);
 
                 type.innerHTML = `<h3>${response.data.type}</h3>`;
                 status.innerHTML = `<h4>Status</h4>${response.data.status}`;
                 comment.innerHTML = `<h4>Comment</h4>${response.data.comment}`;
+                console.log(response.data.images);
+                if (response.data.images === null) {
+                    image1.innerHTML = noImage;
+                } else {
+                    image1.innerHTML = `<img src="${response.data.images[0]}" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">`;
+                    image2.innerHTML = `<img src="${response.data.images[1]}" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">`;
+                }
             }
         })
         .catch(err => err);
