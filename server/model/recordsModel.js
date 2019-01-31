@@ -59,9 +59,9 @@ class Model {
      * @param {*} type
      * @returns {object}
      */
-    static async getOne(userId, recordId, type) {
-        const sql = 'SELECT * FROM records WHERE createdBy = $1 AND id = $2 AND type = $3';
-        const values = [userId, recordId, type];
+    static async getOne(recordId, type) {
+        const sql = 'SELECT * FROM records WHERE id = $1 AND type = $2';
+        const values = [recordId, type];
 
         const { rows } = await pool.query(sql, values);
         return rows[0];

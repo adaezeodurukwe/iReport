@@ -106,7 +106,7 @@ class Records {
     static async getOneRecord(req, res) {
         const returnmessage = req.message;
         try {
-            const oneRedflag = await Model.getOne(req.userId, req.params.id, returnmessage);
+            const oneRedflag = await Model.getOne(req.params.id, returnmessage);
 
             if (!oneRedflag) {
                 return res.status(404).send({

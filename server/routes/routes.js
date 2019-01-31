@@ -35,7 +35,6 @@ router.get(
     '/red-flags/:id',
     Validate.parameter,
     Validate.validationHandler,
-    Auth,
     Message.redflag,
     Records.getOneRecord,
 );
@@ -108,7 +107,6 @@ router.get(
     '/interventions/:id',
     Validate.parameter,
     Validate.updateLocation,
-    Auth,
     Message.intervention,
     Records.getOneRecord,
 );
