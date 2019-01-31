@@ -1,6 +1,6 @@
 // Records script
 
-const recordsUrl = 'http://localhost:3000/api/v1/records';
+const recordsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/records';
 const main = document.getElementById('main');
 
 function getRecords() {

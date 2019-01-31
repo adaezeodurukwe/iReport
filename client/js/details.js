@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 // View details script
 
-const interventionsUrl = 'http://localhost:3000/api/v1/interventions';
-const redflagsUrl = 'http://localhost:3000/api/v1/red-flags';
+const interventionsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/interventions';
+const redflagsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/red-flags';
 const id = new URLSearchParams(window.location.search).get('id');
 const rType = new URLSearchParams(window.location.search).get('type');
 const url = rType === 'redflag' ? redflagsUrl : interventionsUrl;

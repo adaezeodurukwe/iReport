@@ -3,8 +3,8 @@
 
 const id = new URLSearchParams(window.location.search).get('id');
 const recordType = new URLSearchParams(window.location.search).get('type');
-const redflagUrl = `http://localhost:3000/api/v1/red-flags/${id}`;
-const interventionUrl = `http://localhost:3000/api/v1/interventions/${id}`;
+const redflagUrl = `https://ireporter-endpoints.herokuapp.com/api/v1/red-flags/${id}`;
+const interventionUrl = `https://ireporter-endpoints.herokuapp.com/api/v1/interventions/${id}`;
 const token = localStorage.getItem('token');
 const type = document.getElementById('type');
 const longlat = document.getElementById('location');

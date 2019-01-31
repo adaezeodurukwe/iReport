@@ -1,6 +1,6 @@
 // Sign up script
 
-const url = 'http://localhost:3000/api/v1/auth/signup';
+const url = 'https://ireporter-endpoints.herokuapp.com/api/v1/auth/signup';
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const othernames = document.getElementById('othernames');

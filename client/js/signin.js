@@ -1,6 +1,6 @@
 // Sign in script
 
-const url = 'http://localhost:3000/api/v1/auth/signin';
+const url = 'https://ireporter-endpoints.herokuapp.com/api/v1/auth/signin';
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 // eslint-disable-next-line no-useless-escape

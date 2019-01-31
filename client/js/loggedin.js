@@ -1,6 +1,6 @@
 // Control access script
 
-const statusUrl = 'http://localhost:3000/api/v1/auth/user';
+const statusUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/auth/user';
 
 function getStatus() {
     const token = localStorage.getItem('token');

@@ -1,7 +1,7 @@
 // Profile script
 
-const interventionsUrl = 'http://localhost:3000/api/v1/interventions';
-const redflagsUrl = 'http://localhost:3000/api/v1/red-flags';
+const interventionsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/interventions';
+const redflagsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/red-flags';
 const token = localStorage.getItem('token');
 const displayRecords = document.getElementById('red-flags');
 const noRecord = document.getElementById('none');

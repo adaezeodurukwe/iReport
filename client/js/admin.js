@@ -3,10 +3,10 @@
 const id = new URLSearchParams(window.location.search).get('id');
 const rType = new URLSearchParams(window.location.search).get('type');
 const status = new URLSearchParams(window.location.search).get('status');
-const statusUrl = 'http://localhost:3000/api/v1/auth/user';
-const recordsUrl = 'http://localhost:3000/api/v1/records';
-const redflagUrl = `http://localhost:3000/api/v1/red-flags/${id}/status`;
-const interventionUrl = `http://localhost:3000/api/v1/interventions/${id}/status`;
+const statusUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/auth/user';
+const recordsUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/records';
+const redflagUrl = `https://ireporter-endpoints.herokuapp.com/api/v1/red-flags/${id}/status`;
+const interventionUrl = `https://ireporter-endpoints.herokuapp.com/api/v1/interventions/${id}/status`;
 const token = localStorage.getItem('token');
 const main = document.getElementById('main');
 const recId = document.getElementById('recordid');

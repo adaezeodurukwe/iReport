@@ -1,7 +1,7 @@
 // Create record script
 
-const redflagUrl = 'http://localhost:3000/api/v1/red-flags';
-const interventionUrl = 'http://localhost:3000/api/v1/interventions';
+const redflagUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/red-flags';
+const interventionUrl = 'https://ireporter-endpoints.herokuapp.com/api/v1/interventions';
 const token = localStorage.getItem('token');
 const type = document.getElementById('type');
 const longlat = document.getElementById('location');
