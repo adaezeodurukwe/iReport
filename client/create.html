@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iReporter | Create</title>
     <script type="text/javascript" src="js/utility.js"></script>
+	<script type="text/javascript" src="js/loggedin.js"></script>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="img/favicon.png" />
 </head>
@@ -33,7 +34,7 @@
 			<p><a href="profile.html">Profile</a></p>
 			<p><a href="faq.html">Faq </a></p>			
 			<p><a href="create.html">Add Record</a></p>
-			<p><a href="#">Logout</a></p>
+			<p><a href="#" onclick="logout();return false;">Logout</a></p>
 		</div>
 		
 		<div class="profile">
@@ -42,7 +43,7 @@
 				
 				<div class="min-nav">
 					<ul>
-						<li><a href=""><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
+						<li><a href="#" onclick="logout();return false;"><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
 						<li><a href="create.html"><img src="img/add1.png"><span class="ntext">Add</span></a></li>
 						<li><a href="profile.html"><img src="img/apps.png"><span class="ntext">My Records</span></a></li>
 					</ul>
