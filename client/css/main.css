@@ -329,6 +329,12 @@ footer img{
 	margin-right: 4%; 
 }
 
+.records-main{
+	margin: 2% 0;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
 .main{
 	margin: 2% 0;
 	display: grid;
@@ -350,7 +356,7 @@ footer img{
 	display: block;
 	margin: auto;
 	width: 50%;
-	padding-top: 30%;
+	padding-top: 20%;
 }
 
 .cards{
@@ -369,6 +375,11 @@ footer img{
 
 .cards h4 img{
 	height: 20px;
+	padding-right: 5px;
+}
+
+.draft{
+	text-transform: capitalize;
 	padding-right: 5px;
 }
 
@@ -785,6 +796,10 @@ main{
 	}
 
 	[class*="main"]{
+		grid-template-columns: 100%;
+	}
+
+	[class*="records-main"]{
 		grid-template-columns: 100%;
 	}
 
