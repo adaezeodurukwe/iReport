@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Admin</title>
+    <script type="text/javascript" src="js/utility.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+<body>
+	<div class="container">			
+		<nav>
+			<div class="inner">
+				<div class="mobile">
+					<a href="javascript:void(0);" onclick="mobileNav()"><img src="img/menu1.png"></a>
+				</div>
+				<a href="index.html"><h2>iReporter</h2></a>
+				<div class="links">
+					<ul>				
+						<li><a href="signin.html">Login</a></li>
+						<li><a href="signup.html">Sign Up</a></li>
+						<li><a href="faq.html">Faq</a></li>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="records.html">Records</a></li>
+					</ul>
+				</div>					
+			</div>				
+		</nav>
+
+		<div class="mobile-nav">	
+			<p><a href="records.html">Records </a></p>
+			<p><a href="profile.html">Profile</a></p>
+			<p><a href="faq.html">Faq </a></p>
+			<p><a href="create.html">Add Record</a></p>
+			<p><a href="#">Logout</a></p>
+		</div>
+		
+		<div class="profile">
+			<h2>ADMIN</h2>
+			<main>		
+				<div class="min-nav">
+					<ul>
+						<li><a href=""><img src="img/logout.png"><span class="ntext">Logout</span></a></li>
+						<li><a href="create.html"><img src="img/add1.png"><span class="ntext">Add</span></a></li>
+						<li><a href="profile.html"><img src="img/apps.png"><span class="ntext">My Records</span></a></li>
+					</ul>
+				</div>
+				<h3>ALL RECORDS</h3>
+
+				<div class="status">
+					<div class="status-cards">
+						<p id="draft"></p><p>Draft</p>
+					</div>
+					<div class="status-cards">
+						<p id="investigation"></p><p>Under Investigaton</p>
+					</div>
+					<div class="status-cards">
+						<p id="resolved"></p><p>Resolved</p>
+					</div>
+					<div class="status-cards">
+						<p id ="rejected"></p><p>Rejected</p>
+					</div>
+				</div>
+				<div class="main" id="main">
+					
+				</div>
+				<hr/>
+				<div class="pagenation">
+					<button>Prev</button><button>Next</button>
+				</div>
+			</main>
+			<div id="myModal" class="adminmodal">
+			    <div class="adminmodal-content">
+			        <span class="close">&times;</span>
+			        <form id="updateStatus" method="POST" >
+			        	<h2>Update Status</h2>
+			        	<div class="input_field">
+							<label for="recordid">Record ID :</label>
+							<input type="text" id="recordid" name="recordid" disabled>
+			        	</div>
+
+			        	<input type="radio" name="status" id="inputdraft" value="draft" disabled> Draft
+			        	<input type="radio" name="status" id="inputinvestigation" value="under investigation"> Under Investigation
+						<input type="radio" name="status" id="inputresolved" value="resolved"> Resolved
+						<input type="radio" name="status" id="inputrejected" value="rejected"> Rejected
+						<button>Update</button>
+			        </form>
+			    </div>
+			</div>
+		</div>
+		
+	</div>
+	<div id="snackbar"><p id="errormsg"></p></div>
+	<footer>
+		<div class="foot-body">
+			<div class="foot-note">
+				<b>QUICK LINKS</b>
+				<ul>
+					<li>Add Record </li>
+					<li>All Records</li>
+					<li>Profile</li>
+					<li>Faq</li>
+				</ul>
+			</div>
+			<div class="foot-note">
+				<b>SUBSCRIBE</b>
+				<p>Enter email for the latest news</p>
+				<form>
+					<input type="text">
+					<button>Subscribe</button>
+				</form>
+			</div>
+			<div class="foot-note">
+				<b>CONTACT US</b>
+				<p><img src="img/phone.png">+2340136770975</p>
+				<p><img src="img/mail.png">daizyodurukwe@gmail.com</p>
+			</div>
+		</div>
+		
+		<h4>&copy Adaeze Odurukwe</h4>
+		<script type="text/javascript" src="js/admin.js"></script>
+	</footer>
+	<script type="text/javascript">
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+	</script>
+</body>
+</body>
+</html>

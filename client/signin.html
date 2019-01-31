@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | SignIn</title>
+    <script type="text/javascript" src="js/utility.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+<body>
+	<div class="container">			
+		<nav>
+            <div class="inner">
+                <div class="mobile">
+                    <a href="javascript:void(0);" onclick="mobileNav()"><img src="img/menu1.png"></a>
+                </div>
+                <a href="index.html"><h2>iReporter</h2></a>
+                <div class="links">
+                    <ul>                
+                        <li><a class="active" href="signin.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="faq.html">Faq</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a  href="records.html">Records</a></li>
+                    </ul>
+                </div>                  
+            </div>              
+        </nav>
+
+        <div class="mobile-nav">    
+            <p><a href="records.html">Records </a></p>            
+            <p><a href="profile.html">Profile</a></p>
+            <p><a href="faq.html">Faq </a></p>            
+            <p><a href="signup.html">Sign Up</a></p>
+            <p><a href="signin.html">Login</a></p>
+        </div>
+        
+		<div class="form-container">
+            <h1><i>Sign In</i></h1>
+
+            <form id="signIn" method="POST">
+                <div class="form-body">
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                </div>
+
+                <p id="error"></p>
+                
+                <div class="button">
+                    <button>Sign In</button>    
+                </div>
+            </form>
+    	</div>
+	</div>
+    <div id="snackbar"><p id="errormsg"></p></div>
+	<footer>
+        <div class="foot-body">
+            <div class="foot-note">
+                <b>QUICK LINKS</b>
+                <ul>
+                    <li>Add Record </li>
+                    <li>All Records</li>
+                    <li>Profile</li>
+                    <li>Faq</li>
+                </ul>
+            </div>
+            <div class="foot-note">
+                <b>SUBSCRIBE</b>
+                <p>Enter email for the latest news</p>
+                <form>
+                    <input type="text">
+                    <button>Subscribe</button>
+                </form>
+            </div>
+            <div class="foot-note">
+                <b>CONTACT US</b>
+                <p><img src="img/phone.png">+2340136770975</p>
+                <p><img src="img/mail.png">daizyodurukwe@gmail.com</p>
+            </div>
+        </div>
+        
+        <h4>&copy Adaeze Odurukwe</h4>
+        <script type="text/javascript" src="js/signin.js"></script>
+    </footer>
+</body>
+</body>
+</html>
