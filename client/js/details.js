@@ -49,7 +49,6 @@ function loadRecord() {
                 type.innerHTML = `<h3>${response.data.type}</h3>`;
                 status.innerHTML = `<h4>Status</h4>${response.data.status}`;
                 comment.innerHTML = `<h4>Comment</h4>${response.data.comment}`;
-                console.log(response.data.images);
                 if (response.data.images === null) {
                     image1.innerHTML = noImage;
                 } else {
