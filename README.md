@@ -25,7 +25,7 @@ The app enables users to view all incidents reported. To add an incident, a user
 
 - PT board - https://www.pivotaltracker.com/n/projects/2226777
 
-- Gh-pages - https://adaezeodurukwe.github.io/iReport/UI/index.html
+- Gh-pages - https://adaezeodurukwe.github.io/iReport/client/index.html
 
 - API endpoints - https://ireporter-endpoints.herokuapp.com/
 
