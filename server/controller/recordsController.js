@@ -170,7 +170,7 @@ class Records {
         const recordId = req.params.id;
         const newLocation = req.body.location;
         try {
-            const getRecord = await Model.getOne(id, recordId, returnmessage);
+            const getRecord = await Model.getOne(recordId, returnmessage);
 
             if (!getRecord) {
                 return res.status(404).send({
@@ -209,7 +209,7 @@ class Records {
         const recordId = req.params.id;
         const newComment = req.body.comment;
         try {
-            const getRecord = await Model.getOne(id, recordId, returnmessage);
+            const getRecord = await Model.getOne(recordId, returnmessage);
 
             if (!getRecord) {
                 return res.status(404).send({
@@ -296,7 +296,7 @@ class Records {
         const id = req.userId;
         const recordId = req.params.id;
         try {
-            const getRecord = await Model.getOne(id, recordId, returnmessage);
+            const getRecord = await Model.getOne(recordId, returnmessage);
 
             if (!getRecord) {
                 return res.status(404).send({
