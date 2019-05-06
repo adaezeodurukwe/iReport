@@ -39,7 +39,7 @@ class Model {
      * @returns {object}
      */
     static async getAll() {
-        const sql = 'SELECT t1.id, createdby, type, location, comment, status, firstname, lastname FROM users INNER JOIN records t1 ON t1.createdby = users.id';
+        const sql = 'SELECT t1.id, createdby, type, createdon, location, comment, status, firstname, lastname FROM users INNER JOIN records t1 ON t1.createdby = users.id';
 
         const { rows } = await pool.query(sql);
         return rows;
